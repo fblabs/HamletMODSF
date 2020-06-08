@@ -116,7 +116,6 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(tvProdotti->sizePolicy().hasHeightForWidth());
         tvProdotti->setSizePolicy(sizePolicy);
-        tvProdotti->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvProdotti->setAlternatingRowColors(true);
         tvProdotti->setSelectionMode(QAbstractItemView::SingleSelection);
         tvProdotti->setSelectionBehavior(QAbstractItemView::SelectRows);

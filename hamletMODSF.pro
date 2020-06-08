@@ -74,7 +74,8 @@ SOURCES += main.cpp\
     hmodproduct.cpp \
     hnewrecipe.cpp \
     hlotmod.cpp \
-    haddcomponent.cpp
+    haddcomponent.cpp \
+    hpackview.cpp
 
 HEADERS  += mainwindow.h \
     huser.h \
@@ -137,7 +138,8 @@ HEADERS  += mainwindow.h \
     hmodproduct.h \
     hnewrecipe.h \
     hlotmod.h \
-    haddcomponent.h
+    haddcomponent.h \
+    hpackview.h
 
 
 
@@ -197,7 +199,8 @@ FORMS    += mainwindow.ui \
     hmodproduct.ui \
     hnewrecipe.ui \
     hlotmod.ui \
-    haddcomponent.ui
+    haddcomponent.ui \
+    hpackview.ui
 
 RESOURCES += \
     icons.qrc

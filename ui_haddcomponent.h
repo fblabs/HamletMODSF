@@ -107,6 +107,7 @@ public:
         tvProdLots->setAlternatingRowColors(true);
         tvProdLots->setSelectionMode(QAbstractItemView::SingleSelection);
         tvProdLots->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tvProdLots->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(tvProdLots);
 

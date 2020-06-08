@@ -38,10 +38,7 @@ HNewProduct::~HNewProduct()
 }
 
 
-void HNewProduct::on_pushButton_2_clicked()
-{
-    this->close();
-}
+
 
 void HNewProduct::addNewProduct()
 {

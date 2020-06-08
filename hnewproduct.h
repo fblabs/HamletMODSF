@@ -20,7 +20,6 @@ public:
     ~HNewProduct();
 
 private slots:
-    void on_pushButton_2_clicked();
     void addNewProduct();
     void on_pbSave_clicked();
 

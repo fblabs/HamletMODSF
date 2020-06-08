@@ -58,7 +58,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     tmUnitaMisura->setSort(1,Qt::AscendingOrder);
     tmUnitaMisura->select();
     ui->cbProdotti->setModel(tmProdotti);
-    ui->cbProdotti->setModelColumn(1);
+    ui->cbProdotti->setModelColumn(2);
     ui->cbQua->setModel(tmUnitaMisura);
     ui->cbQua->setModelColumn(1);
     ui->cbQua->setCurrentIndex(1);

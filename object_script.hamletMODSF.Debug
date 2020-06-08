@@ -62,6 +62,7 @@ INPUT(
 ./debug/hnewrecipe.o
 ./debug/hlotmod.o
 ./debug/haddcomponent.o
+./debug/hpackview.o
 ./debug/qrc_icons.o
 ./debug/moc_mainwindow.o
 ./debug/moc_huser.o
@@ -123,4 +124,5 @@ INPUT(
 ./debug/moc_hnewrecipe.o
 ./debug/moc_hlotmod.o
 ./debug/moc_haddcomponent.o
+./debug/moc_hpackview.o
 );

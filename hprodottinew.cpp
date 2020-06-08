@@ -41,11 +41,11 @@ HProdottiNew::HProdottiNew(QSqlDatabase pdb,  HUser *puser, QWidget *parent) :
 
 
     tmProdotti->setTable("prodotti");
-    tmProdotti->setSort(1,Qt::AscendingOrder);
+    tmProdotti->setSort(2,Qt::AscendingOrder);
     tmProdotti->setEditStrategy(QSqlRelationalTableModel::OnFieldChange);
 
 
-    tmProdotti->setRelation(2,QSqlRelation("tipi_prodotto","ID","descrizione"));
+    tmProdotti->setRelation(3,QSqlRelation("tipi_prodotto","ID","descrizione"));
     ui->tvProdotti->setItemDelegate(new QSqlRelationalDelegate(tmProdotti));
     tmProdotti->select();
 
@@ -67,11 +67,15 @@ HProdottiNew::HProdottiNew(QSqlDatabase pdb,  HUser *puser, QWidget *parent) :
     connect(tmProdotti,SIGNAL(dataChanged(QModelIndex,QModelIndex,QVector<int>)),this,SLOT(save()));
 
   //  ui->tvProdotti->horizontalHeader()->setSe
-    tmProdotti->setHeaderData(0,Qt::Horizontal,"ID");
-    tmProdotti->setHeaderData(1,Qt::Horizontal,"Descrizione");
-    tmProdotti->setHeaderData(2,Qt::Horizontal,"Tipo");
-    tmProdotti->setHeaderData(3,Qt::Horizontal,"Allergene");
-    tmProdotti->setHeaderData(4,Qt::Horizontal,"Attivo");
+    ui->tvProdotti->setColumnHidden(0,true);
+    ui->tvProdotti->setColumnHidden(7,true);
+   // tmProdotti->setHeaderData(0,Qt::Horizontal,"ID");
+
+    tmProdotti->setHeaderData(1,Qt::Horizontal,"CODICE");
+    tmProdotti->setHeaderData(2,Qt::Horizontal,"Descrizione");
+    tmProdotti->setHeaderData(3,Qt::Horizontal,"Tipo");
+    tmProdotti->setHeaderData(4,Qt::Horizontal,"Allergene");
+    tmProdotti->setHeaderData(5,Qt::Horizontal,"Attivo");
 }
 
 HProdottiNew::~HProdottiNew()
@@ -81,8 +85,9 @@ HProdottiNew::~HProdottiNew()
 
 void HProdottiNew::reloadProduct()
 {
-
+    QModelIndex cix=ui->tvProdotti->currentIndex();
     tmProdotti->select();
+    ui->tvProdotti->setCurrentIndex(cix);
 }
 
 void HProdottiNew::on_radioButton_toggled(bool checked)
@@ -146,7 +151,7 @@ void HProdottiNew::save()
     if(user->getCanUpdate())
     {
     tmProdotti->submitAll();
-
+qDebug()<<"save submit";
     }
 
     tmProdotti->select();

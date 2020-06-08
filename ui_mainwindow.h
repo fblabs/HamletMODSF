@@ -67,6 +67,7 @@ public:
     QPushButton *pbCkeckNotifications;
     QToolButton *tbSettings;
     QToolButton *tbAnag;
+    QPushButton *pbPackView;
     QLabel *label_6;
 
     void setupUi(QMainWindow *MainWindow)
@@ -813,6 +814,71 @@ public:
 
         gridLayout->addWidget(tbAnag, 4, 1, 1, 1);
 
+        pbPackView = new QPushButton(centralWidget);
+        pbPackView->setObjectName(QStringLiteral("pbPackView"));
+        pbPackView->setEnabled(false);
+        pbPackView->setMinimumSize(QSize(80, 0));
+        pbPackView->setMaximumSize(QSize(120, 16777215));
+        QPalette palette28;
+        palette28.setBrush(QPalette::Active, QPalette::WindowText, brush6);
+        QBrush brush13(QColor(200, 188, 192, 255));
+        brush13.setStyle(Qt::SolidPattern);
+        palette28.setBrush(QPalette::Active, QPalette::Button, brush13);
+        palette28.setBrush(QPalette::Active, QPalette::Light, brush);
+        QBrush brush14(QColor(227, 221, 223, 255));
+        brush14.setStyle(Qt::SolidPattern);
+        palette28.setBrush(QPalette::Active, QPalette::Midlight, brush14);
+        palette28.setBrush(QPalette::Active, QPalette::Dark, brush11);
+        QBrush brush15(QColor(133, 125, 128, 255));
+        brush15.setStyle(Qt::SolidPattern);
+        palette28.setBrush(QPalette::Active, QPalette::Mid, brush15);
+        palette28.setBrush(QPalette::Active, QPalette::Text, brush6);
+        palette28.setBrush(QPalette::Active, QPalette::BrightText, brush);
+        palette28.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
+        palette28.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette28.setBrush(QPalette::Active, QPalette::Window, brush13);
+        palette28.setBrush(QPalette::Active, QPalette::Shadow, brush6);
+        palette28.setBrush(QPalette::Active, QPalette::AlternateBase, brush14);
+        palette28.setBrush(QPalette::Active, QPalette::ToolTipBase, brush7);
+        palette28.setBrush(QPalette::Active, QPalette::ToolTipText, brush6);
+        palette28.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
+        palette28.setBrush(QPalette::Inactive, QPalette::Button, brush13);
+        palette28.setBrush(QPalette::Inactive, QPalette::Light, brush);
+        palette28.setBrush(QPalette::Inactive, QPalette::Midlight, brush14);
+        palette28.setBrush(QPalette::Inactive, QPalette::Dark, brush11);
+        palette28.setBrush(QPalette::Inactive, QPalette::Mid, brush15);
+        palette28.setBrush(QPalette::Inactive, QPalette::Text, brush6);
+        palette28.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
+        palette28.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
+        palette28.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette28.setBrush(QPalette::Inactive, QPalette::Window, brush13);
+        palette28.setBrush(QPalette::Inactive, QPalette::Shadow, brush6);
+        palette28.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush14);
+        palette28.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush7);
+        palette28.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush6);
+        palette28.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
+        palette28.setBrush(QPalette::Disabled, QPalette::Button, brush13);
+        palette28.setBrush(QPalette::Disabled, QPalette::Light, brush);
+        palette28.setBrush(QPalette::Disabled, QPalette::Midlight, brush14);
+        palette28.setBrush(QPalette::Disabled, QPalette::Dark, brush11);
+        palette28.setBrush(QPalette::Disabled, QPalette::Mid, brush15);
+        palette28.setBrush(QPalette::Disabled, QPalette::Text, brush11);
+        palette28.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
+        palette28.setBrush(QPalette::Disabled, QPalette::ButtonText, brush11);
+        palette28.setBrush(QPalette::Disabled, QPalette::Base, brush13);
+        palette28.setBrush(QPalette::Disabled, QPalette::Window, brush13);
+        palette28.setBrush(QPalette::Disabled, QPalette::Shadow, brush6);
+        palette28.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush13);
+        palette28.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
+        palette28.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
+        pbPackView->setPalette(palette28);
+        QIcon icon26;
+        icon26.addFile(QStringLiteral(":/Resources/Truck.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pbPackView->setIcon(icon26);
+        pbPackView->setIconSize(QSize(32, 32));
+
+        gridLayout->addWidget(pbPackView, 10, 4, 1, 1);
+
 
         verticalLayout_4->addLayout(gridLayout);
 
@@ -821,14 +887,14 @@ public:
 
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
-        QPalette palette28;
-        palette28.setBrush(QPalette::Active, QPalette::Button, brush8);
-        palette28.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette28.setBrush(QPalette::Inactive, QPalette::Button, brush8);
-        palette28.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette28.setBrush(QPalette::Disabled, QPalette::Button, brush8);
-        palette28.setBrush(QPalette::Disabled, QPalette::ButtonText, brush9);
-        label_6->setPalette(palette28);
+        QPalette palette29;
+        palette29.setBrush(QPalette::Active, QPalette::Button, brush8);
+        palette29.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
+        palette29.setBrush(QPalette::Inactive, QPalette::Button, brush8);
+        palette29.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
+        palette29.setBrush(QPalette::Disabled, QPalette::Button, brush8);
+        palette29.setBrush(QPalette::Disabled, QPalette::ButtonText, brush9);
+        label_6->setPalette(palette29);
 
         verticalLayout->addWidget(label_6);
 
@@ -848,7 +914,7 @@ public:
         label_3->setText(QString());
         label_4->setText(QString());
         label->setText(QString());
-        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt; font-weight:600;\">Hamlet Mod 2.8</span></p><p><span style=\" font-size:16pt; font-weight:600;\">Versione: 2.8.5 SF</span></p><p><br/></p><p><br/></p><p><span style=\" font-size:10pt; font-weight:600;\">Licenza:LGPL v. 3</span></p><p><span style=\" font-size:10pt; font-weight:600;\">Built with Qt 5.5.1 - MinGW 4.9.2</span></p><p><br/></p><p><br/></p><p><span style=\" font-size:10pt;\">\302\251 FBLABS 2015-2020</span></p><p><br/></p></body></html>", 0));
+        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt; font-weight:600;\">Hamlet Mod 2.9</span></p><p><span style=\" font-size:16pt; font-weight:600;\">Versione: 2.9.0 SF</span></p><p><br/></p><p><br/></p><p><span style=\" font-size:10pt; font-weight:600;\">Licenza:LGPL v. 3</span></p><p><span style=\" font-size:10pt; font-weight:600;\">Built with Qt 5.5.1 - MinGW 4.9.2</span></p><p><br/></p><p><br/></p><p><span style=\" font-size:10pt;\">\302\251 FBLABS 2015-2020</span></p><p><br/></p></body></html>", 0));
         tbModificaLotti->setText(QApplication::translate("MainWindow", "Modifica lotti", 0));
         pBNewOperation->setText(QApplication::translate("MainWindow", "Nuova Operazione \n"
 "(F6)", 0));
@@ -889,6 +955,7 @@ public:
         pbCkeckNotifications->setText(QApplication::translate("MainWindow", "Verifica notifiche", 0));
         tbSettings->setText(QApplication::translate("MainWindow", "Impostazioni   ", 0));
         tbAnag->setText(QApplication::translate("MainWindow", "Anagrafica      ", 0));
+        pbPackView->setText(QApplication::translate("MainWindow", "Storico package", 0));
         label_6->setText(QString());
     } // retranslateUi
 

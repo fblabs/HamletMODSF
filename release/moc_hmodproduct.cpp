@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_HModProduct_t {
     QByteArrayData data[9];
-    char stringdata0[116];
+    char stringdata0[99];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,12 +37,12 @@ QT_MOC_LITERAL(4, 33, 18), // "on_pbClose_clicked"
 QT_MOC_LITERAL(5, 52, 17), // "on_pbSave_clicked"
 QT_MOC_LITERAL(6, 70, 16), // "setModifyEnabled"
 QT_MOC_LITERAL(7, 87, 6), // "enable"
-QT_MOC_LITERAL(8, 94, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(8, 94, 4) // "save"
 
     },
     "HModProduct\0done\0\0getProductData\0"
     "on_pbClose_clicked\0on_pbSave_clicked\0"
-    "setModifyEnabled\0enable\0on_pushButton_clicked"
+    "setModifyEnabled\0enable\0save"
 };
 #undef QT_MOC_LITERAL
 
@@ -97,7 +97,7 @@ void HModProduct::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 3: _t->on_pbSave_clicked(); break;
         case 4: _t->setModifyEnabled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 5: _t->setModifyEnabled(); break;
-        case 6: _t->on_pushButton_clicked(); break;
+        case 6: _t->save(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

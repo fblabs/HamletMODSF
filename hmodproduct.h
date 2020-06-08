@@ -11,12 +11,13 @@
 
 enum FIELDS{
     ID=0,
-    DESCRIZIONE=1,
-    TIPO=2,
-    ALLERGENE=3,
-    ATTIVO=4,
-    BIO=5,
-    PRICE=6
+    CODICE=1,
+    DESCRIZIONE=2,
+    TIPO=3,
+    ALLERGENE=4,
+    ATTIVO=5,
+    BIO=6,
+    PRICE=7
 };
 
 namespace Ui {
@@ -44,10 +45,7 @@ private:
    void on_pbClose_clicked();
    void on_pbSave_clicked();
    void setModifyEnabled(bool enable=false);
-
-
-
-   void on_pushButton_clicked();
+   void save();
 
 signals:
    void done();

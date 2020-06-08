@@ -25,13 +25,19 @@ HAddComponent::HAddComponent(int p_idlotto, HUser *p_user, QSqlDatabase p_db, QW
     prodmod->select();
     prodmod->setSort(2,Qt::AscendingOrder);
 
+    QSqlTableModel *umod=new QSqlTableModel(0,db);
+    umod->setTable("unita_di_misura");
+    umod->select();
+    ui->cbUm->setModel(umod);
+    ui->cbUm->setModelColumn(1);
+
 
 
     ui->cbProdotto->setModel(prodmod);
-    ui->cbProdotto->setModelColumn(1);
+    ui->cbProdotto->setModelColumn(2);
     ui->cbProdotto->setCurrentIndex(0);
     QCompleter *comp=new QCompleter(prodmod);
-    comp->setCompletionColumn(1);
+    comp->setCompletionColumn(2);
     comp->setCompletionMode(QCompleter::PopupCompletion);
     comp->setCaseSensitivity(Qt::CaseInsensitive);
     ui->cbProdotto->setCompleter(comp);

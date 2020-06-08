@@ -23,17 +23,7 @@ Qt::ItemFlags HProductsModel::flags(const QModelIndex & item ) const
           return QSqlRelationalTableModel::flags(item) & ~Qt::ItemIsEditable;
 
        }
-       else */if (item.column()==3)
-       {
-           //return flags | Qt::ItemIsEnabled|Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
-
-           flags |= Qt::ItemIsUserCheckable;
-           flags |= Qt::ItemIsEditable;
-           flags |= Qt::ItemIsEnabled;
-
-           return flags;
-       }
-       else if (item.column()==4)
+       else */if (item.column()==4)
        {
            //return flags | Qt::ItemIsEnabled|Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
 
@@ -44,6 +34,16 @@ Qt::ItemFlags HProductsModel::flags(const QModelIndex & item ) const
            return flags;
        }
        else if (item.column()==5)
+       {
+           //return flags | Qt::ItemIsEnabled|Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
+
+           flags |= Qt::ItemIsUserCheckable;
+           flags |= Qt::ItemIsEditable;
+           flags |= Qt::ItemIsEnabled;
+
+           return flags;
+       }
+       else if (item.column()==6)
        {
           //return flags | Qt::ItemIsEnabled|Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
            flags |= Qt::ItemIsUserCheckable;
@@ -65,7 +65,7 @@ Qt::ItemFlags HProductsModel::flags(const QModelIndex & item ) const
 QVariant HProductsModel::data( const QModelIndex & item, int role /*= Qt::DisplayRole*/ ) const
 {
 
-    if (item.column()==3 || item.column()==4 ||item.column()==5)
+    if (item.column()==4 || item.column()==5 ||item.column()==6)
     {
 
 

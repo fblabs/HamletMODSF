@@ -62,6 +62,7 @@ INPUT(
 ./release/hnewrecipe.o
 ./release/hlotmod.o
 ./release/haddcomponent.o
+./release/hpackview.o
 ./release/qrc_icons.o
 ./release/moc_mainwindow.o
 ./release/moc_huser.o
@@ -123,4 +124,5 @@ INPUT(
 ./release/moc_hnewrecipe.o
 ./release/moc_hlotmod.o
 ./release/moc_haddcomponent.o
+./release/moc_hpackview.o
 );

@@ -44,6 +44,7 @@
 #include "hrecipesforclient.h"
 #include <QCryptographicHash>
 #include "hmagazzino.h"
+#include "hpackview.h"
 
 
 
@@ -153,7 +154,7 @@ void MainWindow::disableUI()
 void MainWindow::enableButtonsForRole()
 {
 
-
+    qDebug()<<user->getRole()<<user->getName();
     if (user->getID()==-1)
     {
         //disabilito tutto>logout
@@ -198,6 +199,7 @@ void MainWindow::enableButtonsForRole()
         ui->pbCalcoloCosti->setEnabled(true);
         ui->pbC4R->setEnabled(true);
         ui->tbSettings->setEnabled(false);
+        ui->pbPackView->setEnabled(true);
 
 
 
@@ -234,6 +236,8 @@ void MainWindow::enableButtonsForRole()
         ui->pbCkeckNotifications->setEnabled(true);
         ui->pbExpirations->setEnabled(true);
         ui->pbC4R->setEnabled(true);
+        ui->pbPackView->setEnabled(false);
+
 
 
 
@@ -260,6 +264,7 @@ void MainWindow::enableButtonsForRole()
         ui->pbExpirations->setEnabled(true);
         ui->pbC4R->setEnabled(true);
         ui->tbSettings->setEnabled(false);
+        ui->pbPackView->setEnabled(false);
 
 
         break;
@@ -284,6 +289,7 @@ void MainWindow::enableButtonsForRole()
         ui->pbExpirations->setEnabled(true);
         ui->pbC4R->setEnabled(true);
         ui->tbSettings->setEnabled(false);
+        ui->pbPackView->setEnabled(false);
 
 
         break;
@@ -314,9 +320,9 @@ void MainWindow::enableButtonsForRole()
         ui->pbCalcoloCosti->setEnabled(true);
         ui->pbC4R->setEnabled(true);
         ui->tbSettings->setEnabled(false);
-
-
+        ui->pbPackView->setEnabled(true);
         break;
+
      case 6:
         ui->tnProduzione->setEnabled(false);
         ui->tbLogout->setEnabled(false);
@@ -346,6 +352,7 @@ void MainWindow::enableButtonsForRole()
         ui->pbExpirations->setEnabled(true);
         ui->pbC4R->setEnabled(true);
         ui->tbSettings->setEnabled(false);
+        ui->pbPackView->setEnabled(false);
 
 
 
@@ -677,3 +684,10 @@ void MainWindow::on_pbC4R_clicked()
 
 
 
+
+
+void MainWindow::on_pbPackView_clicked()
+{
+    HPackView *f=new HPackView(db,user);
+    f->show();
+}

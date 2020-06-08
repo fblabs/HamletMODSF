@@ -390,7 +390,7 @@ void HLotti::on_pushButton_7_clicked()
 
 void HLotti::on_leLottoRaw_textChanged(const QString &arg1)
 {
-    QString filter="lotdef.lot like '" +arg1+"%'";
+    QString filter="lotdef.ean like '" +arg1+"%'";
     tbm->setFilter(filter);
    // // qDebug()<<tbm->query().lastError().text();
 }
@@ -571,12 +571,6 @@ void HLotti::on_chBio_toggled(bool checked)
     setFilter();
 }
 
-void HLotti::on_leBolla_textChanged(const QString &arg1)
-{
-    QString filter="lotdef.bolla like '" +arg1+"%'";
-    tbm->setFilter(filter);
-}
-
 
 void HLotti::on_pbLotMod_clicked()
 {
@@ -586,3 +580,7 @@ void HLotti::on_pbLotMod_clicked()
 
     f->show();
 }
+
+
+
+

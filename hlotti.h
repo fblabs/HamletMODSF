@@ -87,11 +87,8 @@ private slots:
 
    void on_chBio_toggled(bool checked);
 
-
-
-   void on_leBolla_textChanged(const QString &arg1);
-
    void on_pbLotMod_clicked();
+
 
 private:
 
