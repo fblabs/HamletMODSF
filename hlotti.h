@@ -90,6 +90,10 @@ private slots:
    void on_pbLotMod_clicked();
 
 
+
+
+   void on_leLotInterno_textChanged(const QString &arg1);
+
 private:
 
     Ui::HLotti *ui;

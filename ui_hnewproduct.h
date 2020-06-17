@@ -37,6 +37,8 @@ public:
     QComboBox *comboBox;
     QCheckBox *cbAllergenico;
     QCheckBox *cbBio;
+    QLabel *label_3;
+    QLineEdit *leCodice;
     QHBoxLayout *horizontalLayout;
     QPushButton *pbSave;
     QPushButton *pbCancel;
@@ -57,32 +59,42 @@ public:
         label = new QLabel(HNewProduct);
         label->setObjectName(QStringLiteral("label"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+        formLayout->setWidget(1, QFormLayout::LabelRole, label);
 
         leDescrizione = new QLineEdit(HNewProduct);
         leDescrizione->setObjectName(QStringLiteral("leDescrizione"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, leDescrizione);
+        formLayout->setWidget(1, QFormLayout::FieldRole, leDescrizione);
 
         label_2 = new QLabel(HNewProduct);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_2);
 
         comboBox = new QComboBox(HNewProduct);
         comboBox->setObjectName(QStringLiteral("comboBox"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, comboBox);
+        formLayout->setWidget(2, QFormLayout::FieldRole, comboBox);
 
         cbAllergenico = new QCheckBox(HNewProduct);
         cbAllergenico->setObjectName(QStringLiteral("cbAllergenico"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, cbAllergenico);
+        formLayout->setWidget(3, QFormLayout::FieldRole, cbAllergenico);
 
         cbBio = new QCheckBox(HNewProduct);
         cbBio->setObjectName(QStringLiteral("cbBio"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, cbBio);
+        formLayout->setWidget(4, QFormLayout::FieldRole, cbBio);
+
+        label_3 = new QLabel(HNewProduct);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, label_3);
+
+        leCodice = new QLineEdit(HNewProduct);
+        leCodice->setObjectName(QStringLiteral("leCodice"));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, leCodice);
 
 
         verticalLayout->addLayout(formLayout);
@@ -126,6 +138,7 @@ public:
         label_2->setText(QApplication::translate("HNewProduct", "Tipo", 0));
         cbAllergenico->setText(QApplication::translate("HNewProduct", "Allergene", 0));
         cbBio->setText(QApplication::translate("HNewProduct", "Bio", 0));
+        label_3->setText(QApplication::translate("HNewProduct", "Codice", 0));
         pbSave->setText(QApplication::translate("HNewProduct", "Salva", 0));
         pbCancel->setText(QApplication::translate("HNewProduct", "Annulla", 0));
     } // retranslateUi

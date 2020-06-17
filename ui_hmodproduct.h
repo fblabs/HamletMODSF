@@ -31,14 +31,12 @@ class Ui_HModProduct
 public:
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
+    QLabel *label_4;
+    QLineEdit *leCod;
     QLabel *label;
     QLineEdit *leDescription;
     QLabel *label_2;
     QComboBox *cbType;
-    QLabel *label_3;
-    QLineEdit *lePrice;
-    QLabel *label_4;
-    QLineEdit *leCod;
     QHBoxLayout *horizontalLayout;
     QCheckBox *cbAllergene;
     QCheckBox *cbActive;
@@ -60,6 +58,17 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         formLayout = new QFormLayout();
         formLayout->setObjectName(QStringLiteral("formLayout"));
+        label_4 = new QLabel(HModProduct);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_4);
+
+        leCod = new QLineEdit(HModProduct);
+        leCod->setObjectName(QStringLiteral("leCod"));
+        leCod->setMaximumSize(QSize(100, 16777215));
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, leCod);
+
         label = new QLabel(HModProduct);
         label->setObjectName(QStringLiteral("label"));
         label->setMinimumSize(QSize(60, 0));
@@ -81,29 +90,6 @@ public:
         cbType->setObjectName(QStringLiteral("cbType"));
 
         formLayout->setWidget(3, QFormLayout::FieldRole, cbType);
-
-        label_3 = new QLabel(HModProduct);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setMaximumSize(QSize(100, 16777215));
-
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_3);
-
-        lePrice = new QLineEdit(HModProduct);
-        lePrice->setObjectName(QStringLiteral("lePrice"));
-        lePrice->setMaximumSize(QSize(100, 16777215));
-
-        formLayout->setWidget(4, QFormLayout::FieldRole, lePrice);
-
-        label_4 = new QLabel(HModProduct);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_4);
-
-        leCod = new QLineEdit(HModProduct);
-        leCod->setObjectName(QStringLiteral("leCod"));
-        leCod->setMaximumSize(QSize(100, 16777215));
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, leCod);
 
 
         verticalLayout->addLayout(formLayout);
@@ -160,10 +146,9 @@ public:
     void retranslateUi(QWidget *HModProduct)
     {
         HModProduct->setWindowTitle(QApplication::translate("HModProduct", "Modifica Prodotto", 0));
+        label_4->setText(QApplication::translate("HModProduct", "Codice", 0));
         label->setText(QApplication::translate("HModProduct", "Descrizione", 0));
         label_2->setText(QApplication::translate("HModProduct", "Tipo:", 0));
-        label_3->setText(QApplication::translate("HModProduct", "Prezzo:", 0));
-        label_4->setText(QApplication::translate("HModProduct", "Codice", 0));
         cbAllergene->setText(QApplication::translate("HModProduct", "Allergene", 0));
         cbActive->setText(QApplication::translate("HModProduct", "Attivo", 0));
         cbBio->setText(QApplication::translate("HModProduct", "Bio", 0));

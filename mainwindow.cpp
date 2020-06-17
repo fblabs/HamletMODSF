@@ -61,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
 
     ui->setupUi(this);
     ui->pushButton->setVisible(false);
+    ui->tbModificaLotti->setVisible(false);
 
     ui->pbVerifyLabels->setVisible(false);
 
@@ -70,6 +71,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
 
     ui->pbOldCards->setVisible(false);
     ui->toolButton->click();
+    ui->tbAnalisi->setVisible(false);
+    ui->pbCalcoloCosti->setVisible(false);
+    ui->pbNotifiche->setVisible(false);
+    ui->pbCkeckNotifications->setVisible(false);
 
   //  installEventFilter(this);
 
@@ -149,6 +154,7 @@ void MainWindow::disableUI()
     ui->pbExpirations->setEnabled(false);
     ui->pbCalcoloCosti->setEnabled(false);
     ui->pbC4R->setEnabled(false);
+    ui->pbPackView->setEnabled(false);
 }
 
 void MainWindow::enableButtonsForRole()

@@ -39,7 +39,7 @@ public:
     QLabel *label_3;
     QLineEdit *leLottoRaw;
     QLabel *label_4;
-    QLineEdit *leBolla;
+    QLineEdit *leLotInterno;
     QCheckBox *chTipoProdotti;
     QComboBox *cbTipoProd;
     QCheckBox *chbT;
@@ -98,11 +98,11 @@ public:
 
         horizontalLayout_2->addWidget(label_4);
 
-        leBolla = new QLineEdit(HLotti);
-        leBolla->setObjectName(QStringLiteral("leBolla"));
-        leBolla->setClearButtonEnabled(true);
+        leLotInterno = new QLineEdit(HLotti);
+        leLotInterno->setObjectName(QStringLiteral("leLotInterno"));
+        leLotInterno->setClearButtonEnabled(true);
 
-        horizontalLayout_2->addWidget(leBolla);
+        horizontalLayout_2->addWidget(leLotInterno);
 
         chTipoProdotti = new QCheckBox(HLotti);
         chTipoProdotti->setObjectName(QStringLiteral("chTipoProdotti"));
@@ -285,7 +285,7 @@ public:
     {
         HLotti->setWindowTitle(QApplication::translate("HLotti", "Lotti", 0));
         label_3->setText(QApplication::translate("HLotti", "Lotto:", 0));
-        label_4->setText(QApplication::translate("HLotti", "Bolla:", 0));
+        label_4->setText(QApplication::translate("HLotti", "Lotto interno", 0));
         chTipoProdotti->setText(QApplication::translate("HLotti", "Tipo prodotto:", 0));
         chbT->setText(QApplication::translate("HLotti", "Tipo lotto:", 0));
         chbP->setText(QApplication::translate("HLotti", "Prodotto:", 0));

@@ -244,6 +244,7 @@ public:
         tvLots->setObjectName(QStringLiteral("tvLots"));
         tvLots->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         tvLots->setAlternatingRowColors(true);
+        tvLots->setSelectionMode(QAbstractItemView::SingleSelection);
         tvLots->setSelectionBehavior(QAbstractItemView::SelectRows);
         tvLots->setSortingEnabled(true);
         tvLots->horizontalHeader()->setStretchLastSection(true);

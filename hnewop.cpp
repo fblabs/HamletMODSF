@@ -63,16 +63,16 @@ void HNewOp::setupForm()
     //ui->cbUm->addItem("Pz", QVariant(1));
     tbm = new  QSqlTableModel(this,db);
     tbm->setTable("prodotti");
-    tbm->setFilter("tipo!=1");
+    //tbm->setFilter("tipo!=1");
     ui->lvprodotti->setModel(tbm);
-    ui->lvprodotti->setModelColumn(1);
+    ui->lvprodotti->setModelColumn(2);
     tbm->select();
 
     tfr = new  QSqlTableModel(this,db);
     tfr->setTable("anagrafica");
     tfr->setFilter("fornitore=1");
     ui->listView->setModel(tfr);
-    ui->listView->setModelColumn(1);
+    ui->listView->setModelColumn(2);
     tfr->select();
 
     tmtipi = new QSqlTableModel(this,db);

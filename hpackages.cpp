@@ -1,6 +1,6 @@
 #include "hpackages.h"
 #include "ui_hpackages.h"
-
+#include <QHeaderView>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -35,7 +35,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     tmLots=new QSqlRelationalTableModel(0,db);
     tmLots->setTable("lotdef");
     tmLots->setFilter(basefilter);
-    tmLots->setSort(3,Qt::DescendingOrder);
+    tmLots->setSort(2,Qt::AscendingOrder);
     tmLots->setRelation(2,QSqlRelation("prodotti","ID","descrizione"));
     tmLots->setRelation(5,QSqlRelation("unita_di_misura","ID","descrizione"));
     tmLots->select();
@@ -48,9 +48,9 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
 
     tmProdotti->setTable("prodotti");
-    tmProdotti->setFilter("tipo=2 and ID in (SELECT prodotto from lotdef where lotdef.tipo=3)");
+    tmProdotti->setFilter("tipo=2");
 
-    tmProdotti->setSort(1,Qt::AscendingOrder);
+    tmProdotti->setSort(2,Qt::AscendingOrder);
     tmProdotti->select();
     qDebug()<<tmProdotti->query().lastQuery()<<tmProdotti->query().lastError().text();
 
@@ -69,7 +69,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
     compProdotti->setModel(tmProdotti);
     compProdotti->setCaseSensitivity(Qt::CaseInsensitive);
-    compProdotti->setCompletionColumn(1);
+    compProdotti->setCompletionColumn(2);
     compProdotti->setCompletionMode(QCompleter::PopupCompletion);
 
     ui->cbProdotti->setCompleter(compProdotti);
@@ -93,6 +93,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     ui->tvLots->setColumnHidden(11,true);
     ui->tvLots->setColumnHidden(12,true);
     ui->tvLots->setEditTriggers(QTableView::NoEditTriggers);
+    ui->tvLots->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
 
 
 

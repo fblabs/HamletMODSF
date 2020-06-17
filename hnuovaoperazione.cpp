@@ -96,7 +96,7 @@ HnuovaOperazione::HnuovaOperazione(HUser *puser,QSqlDatabase pdb,QWidget *parent
     listaFornitori->setSort(1,Qt::AscendingOrder);
 
     listaProdotti->setTable("prodotti");
-    listaProdotti->setSort(1,Qt::AscendingOrder);
+    listaProdotti->setSort(2,Qt::AscendingOrder);
     listaTipologie->setTable("tipi_prodotto");
     listaTipologie->setSort(1,Qt::AscendingOrder);
     listaUnitaDiMisura->setTable("unita_di_misura");
@@ -105,7 +105,7 @@ HnuovaOperazione::HnuovaOperazione(HUser *puser,QSqlDatabase pdb,QWidget *parent
     listaTipilot->setSort(1,Qt::AscendingOrder);
 
     listaFornitori->select();
-
+    listaProdotti->select();
 
     listaTipologie->select();
     listaUnitaDiMisura->select();
@@ -124,12 +124,11 @@ HnuovaOperazione::HnuovaOperazione(HUser *puser,QSqlDatabase pdb,QWidget *parent
     ui->cbtipo->setModelColumn(1);
 
     ui->cbAnagrafica->setModel(listaFornitori);
-     ui->cbAnagrafica->setModelColumn(1);
+    ui->cbAnagrafica->setModelColumn(1);
 
 
-     ui->lvProdotti->setModel(listaProdotti);
-     ui->lvProdotti->setModelColumn(1);
-     listaProdotti->select();
+    ui->lvProdotti->setModel(listaProdotti);
+    ui->lvProdotti->setModelColumn(2);
 
     ui->cbTipoLot->setModel(listaTipilot);
     ui->cbTipoLot->setModelColumn(1);
@@ -230,7 +229,7 @@ void HnuovaOperazione::setUiforCarico()
     listaProdotti->select();
 
     ui->lvProdotti->setModel(listaProdotti);
-    ui->lvProdotti->setModelColumn(1);
+    ui->lvProdotti->setModelColumn(2);
 
 
  //   ui->cbtipo->setCurrentIndex(2);
@@ -311,7 +310,7 @@ void HnuovaOperazione::setUiForScarico()
 void HnuovaOperazione::setProdottoText()
 {
     QString prodotto;
-    prodotto=ui->lvProdotti->model()->index(ui->lvProdotti->currentIndex().row(),1).data(0).toString();
+    prodotto=ui->lvProdotti->model()->index(ui->lvProdotti->currentIndex().row(),2).data(0).toString();
 
     ui->leProdottoCreato->setText(prodotto);
 }
@@ -507,7 +506,7 @@ bool HnuovaOperazione::saveOperationScarico()
     int azione=2;
     double quantita=ui->leQuantita->text().toDouble();
     //int UM=ui->cbUM->model()->index(ui->cbUM->currentIndex(),0).data(0).toInt();
-    QString note="";
+    QString note=ui->leNote->text().trimmed();
 
     QString query="INSERT INTO operazioni(IDlotto,data,utente,IDprodotto,azione,quantita,um,note) VALUES (:lot,:data,:utente,:prodotto,:azione,:quantita,:um,:note)";
 
@@ -576,7 +575,7 @@ bool HnuovaOperazione::saveOperationCarico()
     int azione=1;
     double quantita=ui->leQuantita->text().toDouble();
     int UM=ui->cbUM->model()->index(ui->cbUM->currentIndex(),0).data(0).toInt();
-    QString note="";
+    QString note=ui->leNote->text().trimmed();
 
 
     QString query2="INSERT INTO operazioni(IDlotto,data,utente,IDprodotto,azione,quantita,um,note) VALUES (:idlotto,:data,:utente,:prodotto,:azione,:quantita,:um,:note)";

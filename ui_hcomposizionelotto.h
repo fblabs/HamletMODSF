@@ -63,6 +63,7 @@ public:
 
         leDesc = new QLineEdit(HComposizioneLotto);
         leDesc->setObjectName(QStringLiteral("leDesc"));
+        leDesc->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127);"));
         leDesc->setReadOnly(true);
 
         horizontalLayout_2->addWidget(leDesc);

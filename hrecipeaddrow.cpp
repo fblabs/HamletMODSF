@@ -21,13 +21,13 @@ HRecipeAddRow::HRecipeAddRow(int pidricetta, QSqlDatabase pdb, QWidget *parent) 
     QSqlTableModel *mod= new QSqlTableModel(0,db);
     mod->setTable("prodotti");
     mod->setFilter("tipo in (1,3,4)");
-    mod->setSort(1,Qt::AscendingOrder);
+    mod->setSort(2,Qt::AscendingOrder);
     mod->select();
 
     ui->checkBox->setVisible(false);
 
     ui->comboBox->setModel(mod);
-    ui->comboBox->setModelColumn(1);
+    ui->comboBox->setModelColumn(2);
 
     idricettatarget=pidricetta;
 }

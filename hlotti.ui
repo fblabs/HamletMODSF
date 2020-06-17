@@ -46,12 +46,12 @@
            <item>
             <widget class="QLabel" name="label_4">
              <property name="text">
-              <string>Bolla:</string>
+              <string>Lotto interno</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="leBolla">
+            <widget class="QLineEdit" name="leLotInterno">
              <property name="clearButtonEnabled">
               <bool>true</bool>
              </property>

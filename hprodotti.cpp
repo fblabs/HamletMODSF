@@ -257,7 +257,7 @@ void HProdotti::on_pushButton_5_clicked()
     int allergenico = ui->cballergenico->isChecked() ? 1:0 ;
 
     QSqlQuery q(db);
-   if( !q.exec("INSERT INTO prodotti (ID,descrizione,tipo,allergenico,unita_misura) VALUES ('-1','"+ ui->desc->text()+"'," + ui->cbxtipo->itemData(ui->cbxtipo->currentIndex()).toString() + ","+ QString::number(allergenico) + "," + ui->cbxUM->itemData(ui->cbxtipo->currentIndex()).toString()+ ")"))
+   if( !q.exec("INSERT INTO prodotti (ID,descrizione,tipo,allergenico,prezzo) VALUES ('-1','"+ ui->desc->text()+"'," + ui->cbxtipo->itemData(ui->cbxtipo->currentIndex()).toString() + ","+ QString::number(allergenico) +  ",0)"))
    {
       QMessageBox::warning(this,QApplication::applicationName(),"Errore durante il salvataggio\n"+pModel->lastError().text(),QMessageBox::Ok);
       //// qDebug()<<q.lastQuery()<<q.lastError();

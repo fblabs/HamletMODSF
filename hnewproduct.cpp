@@ -44,8 +44,8 @@ void HNewProduct::addNewProduct()
 {
     QSqlQuery q(db);
     QString query;
-    QVariant descrizione,tipo,allergenico,attivo,bio;
-
+    QVariant codice,descrizione,tipo,allergenico,attivo,bio;
+    codice=ui->leCodice->text();
     descrizione=ui->leDescrizione->text().toUpper();
     tipo=ui->comboBox->model()->index(ui->comboBox->currentIndex(),0).data(0).toString();
     if (ui->cbAllergenico->isChecked())
@@ -69,8 +69,9 @@ void HNewProduct::addNewProduct()
     attivo="1";
 
 
-    query="INSERT INTO prodotti (descrizione,tipo,allergenico,attivo,bio) VALUES(:desc,:tipo,:allerg,:attivo,:bio)";
+    query="INSERT INTO prodotti (codice,descrizione,tipo,allergenico,attivo,bio) VALUES(:codice,:desc,:tipo,:allerg,:attivo,:bio)";
     q.prepare(query);
+    q.bindValue(":codice",QVariant(codice));
     q.bindValue(":desc",QVariant(descrizione));
     q.bindValue(":tipo",QVariant(tipo));
     q.bindValue(":allerg",QVariant(allergenico));

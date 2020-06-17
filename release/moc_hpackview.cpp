@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_HPackView_t {
-    QByteArrayData data[12];
-    char stringdata0[158];
+    QByteArrayData data[13];
+    char stringdata0[176];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,13 +40,15 @@ QT_MOC_LITERAL(7, 86, 14), // "modifySelected"
 QT_MOC_LITERAL(8, 101, 8), // "pidlotto"
 QT_MOC_LITERAL(9, 110, 16), // "on_pbMod_clicked"
 QT_MOC_LITERAL(10, 127, 24), // "on_tvPacks_doubleClicked"
-QT_MOC_LITERAL(11, 152, 5) // "index"
+QT_MOC_LITERAL(11, 152, 5), // "index"
+QT_MOC_LITERAL(12, 158, 17) // "on_pbInfo_clicked"
 
     },
     "HPackView\0setFilter\0\0on_deDal_dateChanged\0"
     "date\0on_deAl_dateChanged\0on_pbClose_clicked\0"
     "modifySelected\0pidlotto\0on_pbMod_clicked\0"
-    "on_tvPacks_doubleClicked\0index"
+    "on_tvPacks_doubleClicked\0index\0"
+    "on_pbInfo_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +58,7 @@ static const uint qt_meta_data_HPackView[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,14 +66,15 @@ static const uint qt_meta_data_HPackView[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x08 /* Private */,
-       3,    1,   55,    2, 0x08 /* Private */,
-       5,    1,   58,    2, 0x08 /* Private */,
-       6,    0,   61,    2, 0x08 /* Private */,
-       7,    1,   62,    2, 0x08 /* Private */,
-       7,    0,   65,    2, 0x28 /* Private | MethodCloned */,
-       9,    0,   66,    2, 0x08 /* Private */,
-      10,    1,   67,    2, 0x08 /* Private */,
+       1,    0,   59,    2, 0x08 /* Private */,
+       3,    1,   60,    2, 0x08 /* Private */,
+       5,    1,   63,    2, 0x08 /* Private */,
+       6,    0,   66,    2, 0x08 /* Private */,
+       7,    1,   67,    2, 0x08 /* Private */,
+       7,    0,   70,    2, 0x28 /* Private | MethodCloned */,
+       9,    0,   71,    2, 0x08 /* Private */,
+      10,    1,   72,    2, 0x08 /* Private */,
+      12,    0,   75,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -82,6 +85,7 @@ static const uint qt_meta_data_HPackView[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QModelIndex,   11,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -100,6 +104,7 @@ void HPackView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 5: _t->modifySelected(); break;
         case 6: _t->on_pbMod_clicked(); break;
         case 7: _t->on_tvPacks_doubleClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 8: _t->on_pbInfo_clicked(); break;
         default: ;
         }
     }
@@ -130,13 +135,13 @@ int HPackView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }

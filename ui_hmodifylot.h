@@ -16,7 +16,6 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
-#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -33,18 +32,20 @@ QT_BEGIN_NAMESPACE
 class Ui_HModifyLot
 {
 public:
-    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label;
     QLineEdit *leLot;
+    QLabel *label_12;
+    QLineEdit *leCodice;
     QLabel *label_3;
     QLineEdit *leProd;
     QLabel *label_5;
     QLineEdit *leGiac;
-    QVBoxLayout *verticalLayout;
-    QFormLayout *formLayout;
+    QHBoxLayout *horizontalLayout_9;
     QLabel *label_2;
     QComboBox *cbUm;
+    QSpacerItem *horizontalSpacer_5;
     QGridLayout *gridLayout;
     QDateEdit *deScad;
     QLabel *label_4;
@@ -67,9 +68,6 @@ public:
     QComboBox *cbtipo;
     QSpacerItem *horizontalSpacer_4;
     QHBoxLayout *horizontalLayout_7;
-    QLabel *label_10;
-    QLineEdit *leBolla;
-    QSpacerItem *horizontalSpacer_5;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_11;
     QPlainTextEdit *ptNote;
@@ -93,8 +91,8 @@ public:
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Wood-4-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         HModifyLot->setWindowIcon(icon);
-        verticalLayout_2 = new QVBoxLayout(HModifyLot);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout = new QVBoxLayout(HModifyLot);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         label = new QLabel(HModifyLot);
@@ -110,6 +108,19 @@ public:
         leLot->setReadOnly(true);
 
         horizontalLayout_3->addWidget(leLot);
+
+        label_12 = new QLabel(HModifyLot);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        horizontalLayout_3->addWidget(label_12);
+
+        leCodice = new QLineEdit(HModifyLot);
+        leCodice->setObjectName(QStringLiteral("leCodice"));
+        leCodice->setMaximumSize(QSize(100, 16777215));
+        leCodice->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127);"));
+        leCodice->setReadOnly(true);
+
+        horizontalLayout_3->addWidget(leCodice);
 
         label_3 = new QLabel(HModifyLot);
         label_3->setObjectName(QStringLiteral("label_3"));
@@ -140,26 +151,28 @@ public:
         horizontalLayout_3->addWidget(leGiac);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_3);
+        verticalLayout->addLayout(horizontalLayout_3);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         label_2 = new QLabel(HModifyLot);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label_2);
+        horizontalLayout_9->addWidget(label_2);
 
         cbUm = new QComboBox(HModifyLot);
         cbUm->setObjectName(QStringLiteral("cbUm"));
         cbUm->setEditable(true);
         cbUm->setInsertPolicy(QComboBox::InsertAtBottom);
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, cbUm);
+        horizontalLayout_9->addWidget(cbUm);
+
+        horizontalSpacer_5 = new QSpacerItem(688, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_5);
 
 
-        verticalLayout->addLayout(formLayout);
+        verticalLayout->addLayout(horizontalLayout_9);
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
@@ -269,20 +282,6 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        label_10 = new QLabel(HModifyLot);
-        label_10->setObjectName(QStringLiteral("label_10"));
-
-        horizontalLayout_7->addWidget(label_10);
-
-        leBolla = new QLineEdit(HModifyLot);
-        leBolla->setObjectName(QStringLiteral("leBolla"));
-
-        horizontalLayout_7->addWidget(leBolla);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer_5);
-
 
         verticalLayout->addLayout(horizontalLayout_7);
 
@@ -300,9 +299,6 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout_8);
-
-
-        verticalLayout_2->addLayout(verticalLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -341,7 +337,7 @@ public:
         horizontalLayout_2->addWidget(pbClose);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_2);
+        verticalLayout->addLayout(horizontalLayout_2);
 
 
         retranslateUi(HModifyLot);
@@ -353,6 +349,7 @@ public:
     {
         HModifyLot->setWindowTitle(QApplication::translate("HModifyLot", "Informazioni su lotto", 0));
         label->setText(QApplication::translate("HModifyLot", "Lotto:", 0));
+        label_12->setText(QApplication::translate("HModifyLot", "Cod.Prodotto", 0));
         label_3->setText(QApplication::translate("HModifyLot", "Prodotto:", 0));
         label_5->setText(QApplication::translate("HModifyLot", "Giacenza:", 0));
         label_2->setText(QApplication::translate("HModifyLot", "Unit\303\240 di misura:", 0));
@@ -363,7 +360,6 @@ public:
         label_7->setText(QApplication::translate("HModifyLot", "lotto Fornitore:", 0));
         label_8->setText(QApplication::translate("HModifyLot", "lotto  di uscita:", 0));
         label_9->setText(QApplication::translate("HModifyLot", "Tipo:", 0));
-        label_10->setText(QApplication::translate("HModifyLot", "Bolla:", 0));
         label_11->setText(QApplication::translate("HModifyLot", "Note:", 0));
         pushButton->setText(QApplication::translate("HModifyLot", "Salva", 0));
         pbComposizione->setText(QApplication::translate("HModifyLot", "Dettagli", 0));

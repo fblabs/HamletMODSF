@@ -26,7 +26,7 @@ HPackView::HPackView(QSqlDatabase pdb=QSqlDatabase(),HUser *puser=0,QWidget *par
     mod->setHeaderData(6,Qt::Horizontal,QObject::tr("UNITA' DI MISURA"));
     mod->setHeaderData(7,Qt::Horizontal,QObject::tr("SCADENZA"));
     ui->deDal ->setDate(QDate::currentDate().addMonths(-1));
-    ui->deAl->setDate(QDate::currentDate());
+    ui->deAl->setDate(QDate::currentDate().addDays(1));
     setFilter();
     mod->select();
 
@@ -45,6 +45,7 @@ HPackView::~HPackView()
 void HPackView::setFilter()
 {
     mod->setFilter("lotdef_view.data between cast('" + ui->deDal->date().toString("yyyy-MM-dd") + "' as date) and cast('" + ui->deAl->date().toString("yyyy-MM-dd")+"' as date)");
+    qDebug()<<mod->filter();
 
 }
 
@@ -89,6 +90,17 @@ void HPackView::on_tvPacks_doubleClicked(const QModelIndex &index)
 {
     Q_UNUSED(index);
 
+    int row=ui->tvPacks->selectionModel()->currentIndex().row();
+
+    int idlotto=ui->tvPacks->model()->index(row,0).data(0).toInt();
+
+
+    modifySelected(idlotto);
+    mod->select();
+}
+
+void HPackView::on_pbInfo_clicked()
+{
     int row=ui->tvPacks->selectionModel()->currentIndex().row();
 
     int idlotto=ui->tvPacks->model()->index(row,0).data(0).toInt();

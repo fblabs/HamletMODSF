@@ -37,11 +37,11 @@ HLastLots::HLastLots(QWidget *parent, QSqlDatabase pdb, double qrecipe, QString 
     prodModel->setSort(1,Qt::AscendingOrder);
     prodModel->select();
     ui->cbProducts->setModel(prodModel);
-    ui->cbProducts->setModelColumn(1);
+    ui->cbProducts->setModelColumn(2);
     int row=ui->cbProducts->findText(product);
     ui->cbProducts->setCurrentIndex(row);
     QCompleter *compprods=new QCompleter();
-    compprods->setCompletionColumn(1);
+    compprods->setCompletionColumn(2);
     compprods->setModel(prodModel);
     compprods->setCompletionMode(QCompleter::PopupCompletion);
     compprods->setCaseSensitivity(Qt::CaseInsensitive);

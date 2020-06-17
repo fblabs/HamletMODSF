@@ -42,6 +42,8 @@ HProduction::HProduction(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     ui->pushButton_10->setEnabled(false);
     ui->pushButton->setVisible(false);
     ui->deDataProd->setDateTime(QDateTime::currentDateTime());
+    ui->checkBox->setChecked(false);
+    ui->checkBox->setVisible(false);
 
     modifyLot=false;
 
@@ -70,7 +72,7 @@ HProduction::HProduction(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
     getClients();
     ui->cbClienti->setCurrentIndex(ui->cbClienti->model()->rowCount());
-    int ix=ui->cbClienti->findText("PRODUZIONE");
+    int ix=ui->cbClienti->findText("MAGAZZINO");
     ui->cbClienti->setCurrentIndex(ix);
 
     getRecipesForClient();
@@ -367,16 +369,7 @@ void HProduction::getLotToModify(QString lot)
 void HProduction::getRecipesForClient()
 {
 
-   /* if (ui->checkBox->isChecked())
-    {
-        idcliente=ui->lvSubclienti->model()->index(ui->lvSubclienti->currentIndex().row(),0).data(0).toInt();
-    }
-    else
-    {
-        idcliente=ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0).toInt();
-    }*/
-
-    ui->tableView->setModel(0);
+  ui->tableView->setModel(0);
 
 
  //   QString qs="SELECT select prodotti.ID,ricette.ID,prodotti.descrizione from ricette,associazioni,prodotti,anagrafica where prodotti.ID=ricette.ID_prodotto and ricette.ID=associazioni.ID_ricetta and associazioni.ID_cliente=anagrafica.ID and associazioni.ID_cliente="+idcliente;
@@ -1697,6 +1690,8 @@ void HProduction::on_cbClienti_currentIndexChanged(int index)
 {
 
 }
+
+
 
 
 

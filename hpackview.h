@@ -31,6 +31,7 @@ private slots:
     void modifySelected(int pidlotto=-1 );
     void on_pbMod_clicked();
     void on_tvPacks_doubleClicked(const QModelIndex &index);
+    void on_pbInfo_clicked();
 };
 
 #endif // HPACKVIEW_H

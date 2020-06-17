@@ -22,9 +22,7 @@ HModProduct::HModProduct(int pID, QSqlDatabase pdb, QWidget *parent) :
     db=pdb;
     ID=pID;
     getProductData();
-    ui->label_3->setVisible(false);
-    ui->lePrice->setVisible(false);
-    ui->lePrice->setText(0);
+
 
 
 }
@@ -74,8 +72,6 @@ bool HModProduct::getProductData()
     map->addMapping(ui->cbActive,ATTIVO);
     map->addMapping(ui->cbAllergene,ALLERGENE);
     map->addMapping(ui->cbBio,BIO);
-    map->addMapping(ui->lePrice,PRICE);
-
 
     map->toFirst();
     map->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);

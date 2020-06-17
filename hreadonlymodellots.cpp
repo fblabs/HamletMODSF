@@ -83,7 +83,7 @@ QVariant HReadOnlyModelLots::data( const QModelIndex & item, int role /*= Qt::Di
    {
     return QIcon(":/Resources/Box.PNG");
    }
-   if (item.column()==12)
+   if (item.column()==14)
    {
 
 
