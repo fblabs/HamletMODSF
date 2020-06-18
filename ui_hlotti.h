@@ -149,6 +149,7 @@ public:
 
         chBio = new QCheckBox(HLotti);
         chBio->setObjectName(QStringLiteral("chBio"));
+        chBio->setEnabled(false);
 
         horizontalLayout_4->addWidget(chBio);
 

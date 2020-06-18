@@ -30,7 +30,7 @@ private:
     Ui::HPackages *ui;
     QSqlDatabase db;
     QString sConn;
-    QSqlRelationalTableModel *tmLots;
+    QSqlTableModel *tmLots;
     QSqlTableModel *tmClienti;
     QSqlTableModel *tmProdotti;
     QSqlTableModel *tmUnitaMisura;
@@ -81,9 +81,14 @@ private slots:
 
     void on_rbProdottiFiniti_toggled(bool checked);
 
-    void on_leSearch_textChanged(const QString &arg1);
+
 
     void on_rbConfezionamenti_toggled(bool checked);
+    void on_leSearchCode_returnPressed();
+    void on_leSearch_returnPressed();
+
+    void on_leSearch_cursorPositionChanged(int arg1, int arg2);
+    void on_leSearchCode_cursorPositionChanged(int arg1, int arg2);
 };
 
 #endif // HPACKAGES_H

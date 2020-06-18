@@ -216,9 +216,31 @@ void HAddComponent::on_pbConfirm_clicked()
     db.transaction();
     addComponentOperation();
 
+    prodmod->setFilter(QString());
+
 }
 
 void HAddComponent::on_pbClose_clicked()
 {
     close();
+}
+
+
+
+void HAddComponent::on_leCode_returnPressed()
+{
+    QString filter=ui->leCode->text();
+
+    if(filter.length()>0)
+    {
+        prodmod->setFilter("codice="+filter);
+    }else
+    {
+        prodmod->setFilter(QString());
+
+    }
+    ui->leCode->setText(QString());
+    ui->cbProdotto->setCurrentIndex(0);
+
+
 }

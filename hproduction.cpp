@@ -36,14 +36,15 @@ HProduction::HProduction(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     user=puser;
     db=pdb;
     ui->textBrowser->setVisible(false);
-    ui->dateEdit->setVisible(false);
-    ui->label_9->setVisible(false);
+   //ui->dateEdit->setVisible(false);
+   // ui->label_9->setVisible(false);
     ui->pushButton_8->setVisible(false);
     ui->pushButton_10->setEnabled(false);
     ui->pushButton->setVisible(false);
     ui->deDataProd->setDateTime(QDateTime::currentDateTime());
     ui->checkBox->setChecked(false);
     ui->checkBox->setVisible(false);
+    ui->lvSubclienti->setVisible(false);
 
     modifyLot=false;
 
@@ -82,13 +83,12 @@ HProduction::HProduction(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
     ui->leQtyTotal->setEnabled(true);
     ui->pushButton_5->setVisible(true);
-    ui->pushButton_6->setVisible(false);
+    ui->pushButton_6->setVisible(true);
     ui->pushButton->setEnabled(false);
     ui->pushButton_2->setEnabled(false);
     ui->pushButton_7->setEnabled(false);
     ui->leNuovoLot->setText("");
-    ui->label_6->setVisible(true);
-    ui->dateEdit->setDate(QDate::currentDate().addYears(2));
+    ui->dateEdit->setDate(QDate::currentDate().addMonths(2));
 
     setAddProductFuoriRicettaUI(false);
 
@@ -1456,7 +1456,7 @@ void HProduction::on_pushButton_7_toggled(bool checked)
 
 void HProduction::setAddProductFuoriRicettaUI(bool visible)
 {
-    ui->label_6->setVisible(visible);
+   // ui->label_6->setVisible(visible);
    /* ui->label_2->setVisible(visible);
     ui->label_4->setVisible(visible);
     ui->leqtytoAdd->setVisible(visible);

@@ -88,8 +88,7 @@ HModifyLot::HModifyLot(int pidlotto, HUser *p_user, QSqlDatabase pdb, QWidget *p
     QVariant cod=q.value(6);
     QVariant prod=q.value(7);
     QVariant anag=q.value(11);
-    QVariant ixtipo=q.value(2);
-    tipo=q.value(2).toInt();
+    QVariant ixtipo=q.value(13);
     QVariant ixum=q.value(9);
     QVariant scadz= q.value(10);
     QVariant attv=q.value(14);

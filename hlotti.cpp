@@ -35,6 +35,8 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
     db=pdb;
     dateset=false;
 
+    ui->chBio->setVisible(false);
+
 
 
 
@@ -81,7 +83,7 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
    ui->pushButton_7->setEnabled(false);
 
 
-   ui->datadal->setDate(QDate::currentDate().addMonths(-1));
+   ui->datadal->setDate(QDate::currentDate().addYears(-1));
    ui->dataal->setDate(QDate::currentDate());
    dal=ui->datadal->date();
    al=ui->dataal->date();
@@ -220,10 +222,6 @@ void HLotti::on_pushButton_3_clicked()
       }
 }
 
-void HLotti::searchProduct()
-{
-
-}
 
 
 
@@ -251,10 +249,9 @@ void HLotti::setFilter()
 {
     QString tipo,prodotto,filter;
 
-       if(!tbm) qDebug()<<"no tbm";
-       if(!mTipi)qDebug()<<"noprodotti";
 
-       if(!mProdotti)qDebug()<<"noprodotti";
+       dal=ui->datadal->date();
+       al=ui->dataal->date();
 
 
        filter="";
@@ -276,14 +273,8 @@ void HLotti::setFilter()
            //filtra per prodotto
            prodotto=mProdotti->index(ui->cbProdotti->currentIndex(),0).data(0).toString();
            filter="lotti_view.idprodotto="+prodotto+" and "+datafilter;
+           qDebug()<<filter;
        }
-      /*else if(ui->chbP->isChecked() && ui->chbT->isChecked())
-       {
-           //filtra  per entrambi
-           tipo=mTipi->index(ui->cbTipiLot->currentIndex(),0).data(0).toString();
-           prodotto=mProdotti->index(ui->cbProdotti->currentIndex(),0).data(0).toString();
-           filter="lotti_view.tipolot="+ tipo + " and lotti_view.idprodotto=" + prodotto+" and "+datafilter;
-       }*/
        else if(ui->chTipoProdotti->isChecked())
        {
            //filtra  per entrambi
@@ -291,28 +282,7 @@ void HLotti::setFilter()
            filter="lotti_view.idprodotto in (SELECT ID from prodotti where tipo=" + tipo + ") and "+datafilter;
        }
 
-       if(ui->chBio->isChecked())
-       {
-           if (ui->chbP->isChecked() || ui->chbT->isChecked()|| ui->chTipoProdotti->isChecked())
-           {
-               filter += " and lotti_view.idprodotto in (SELECT ID from prodotti where bio>0) and "+datafilter;
-           }
-           else
-           {
-               filter="lotti_view.idprodotto in (SELECT ID from prodotti where bio>0) and "+datafilter;
-           }
-
-
-       }
-
-       if(!ui->chTipoProdotti->isChecked()&& !ui->chbT->isChecked() && !ui->chbT->isChecked() && !ui->chBio->isChecked())
-       {
-           filter=datafilter;
-       }
-
-
-
-   tbm->setFilter(filter);
+       tbm->setFilter(filter);
 
    qDebug()<<tbm->filter()<<tbm->lastError().text()<<tbm->query().lastQuery();
 
@@ -519,7 +489,7 @@ void HLotti::on_chbP_toggled(bool checked)
 void HLotti::on_cbProdotti_currentIndexChanged(int index)
 {
     Q_UNUSED(index);
-
+    qDebug()<<"cbprodotti";
     setFilter();
 }
 

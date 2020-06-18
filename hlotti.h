@@ -34,15 +34,9 @@ private slots:
 
     void on_pushButton_3_clicked();
 
-    void searchProduct();
-
-  //  void onConnectionNameSet();
-
     void resetData();
 
     void on_pushButton_4_clicked();
-
-   // void on_pushButton_5_clicked();
 
     void setFilter();
     void showContextMenu(const QPoint& pos);

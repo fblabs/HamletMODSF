@@ -139,6 +139,9 @@
          </item>
          <item>
           <widget class="QCheckBox" name="chBio">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Bio</string>
            </property>

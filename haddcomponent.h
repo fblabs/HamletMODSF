@@ -48,6 +48,8 @@ private slots:
     void on_pbConfirm_clicked();
     void on_pbClose_clicked();
 
+
+    void on_leCode_returnPressed();
 };
 
 #endif // HADDCOMPONENT_H

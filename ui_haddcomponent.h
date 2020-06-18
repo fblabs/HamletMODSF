@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -39,6 +40,10 @@ public:
     QRadioButton *rbImpasti;
     QRadioButton *rbRipieni;
     QRadioButton *rbConfezioni;
+    QFormLayout *formLayout;
+    QLabel *label_2;
+    QLineEdit *leCode;
+    QLabel *label_3;
     QComboBox *cbProdotto;
     QTableView *tvProdLots;
     QHBoxLayout *horizontalLayout_3;
@@ -95,11 +100,32 @@ public:
 
         verticalLayout->addLayout(gridLayout);
 
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        label_2 = new QLabel(HAddComponent);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, label_2);
+
+        leCode = new QLineEdit(HAddComponent);
+        leCode->setObjectName(QStringLiteral("leCode"));
+        leCode->setMaximumSize(QSize(100, 16777215));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, leCode);
+
+        label_3 = new QLabel(HAddComponent);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_3);
+
         cbProdotto = new QComboBox(HAddComponent);
         cbProdotto->setObjectName(QStringLiteral("cbProdotto"));
         cbProdotto->setEditable(true);
 
-        verticalLayout->addWidget(cbProdotto);
+        formLayout->setWidget(1, QFormLayout::FieldRole, cbProdotto);
+
+
+        verticalLayout->addLayout(formLayout);
 
         tvProdLots = new QTableView(HAddComponent);
         tvProdLots->setObjectName(QStringLiteral("tvProdLots"));
@@ -176,6 +202,8 @@ public:
         rbImpasti->setText(QApplication::translate("HAddComponent", "Impasti", 0));
         rbRipieni->setText(QApplication::translate("HAddComponent", "Ripieni", 0));
         rbConfezioni->setText(QApplication::translate("HAddComponent", "Confezionamenti", 0));
+        label_2->setText(QApplication::translate("HAddComponent", "Codice:", 0));
+        label_3->setText(QApplication::translate("HAddComponent", "Prodotto:", 0));
         label->setText(QApplication::translate("HAddComponent", "Quantit\303\240:", 0));
         pbConfirm->setText(QApplication::translate("HAddComponent", "Conferma", 0));
         pbClose->setText(QApplication::translate("HAddComponent", "Chiudi", 0));

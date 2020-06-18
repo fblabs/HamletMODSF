@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_HAddComponent_t {
-    QByteArrayData data[18];
-    char stringdata0[308];
+    QByteArrayData data[19];
+    char stringdata0[332];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,7 +46,8 @@ QT_MOC_LITERAL(13, 220, 21), // "updateComposizioneLot"
 QT_MOC_LITERAL(14, 242, 12), // "idoperazione"
 QT_MOC_LITERAL(15, 255, 12), // "refreshModel"
 QT_MOC_LITERAL(16, 268, 20), // "on_pbConfirm_clicked"
-QT_MOC_LITERAL(17, 289, 18) // "on_pbClose_clicked"
+QT_MOC_LITERAL(17, 289, 18), // "on_pbClose_clicked"
+QT_MOC_LITERAL(18, 308, 23) // "on_leCode_returnPressed"
 
     },
     "HAddComponent\0done\0\0on_rbTutti_toggled\0"
@@ -57,7 +58,7 @@ QT_MOC_LITERAL(17, 289, 18) // "on_pbClose_clicked"
     "index\0addComponentOperation\0"
     "updateComposizioneLot\0idoperazione\0"
     "refreshModel\0on_pbConfirm_clicked\0"
-    "on_pbClose_clicked"
+    "on_pbClose_clicked\0on_leCode_returnPressed"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +68,7 @@ static const uint qt_meta_data_HAddComponent[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,22 +76,23 @@ static const uint qt_meta_data_HAddComponent[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   84,    2, 0x06 /* Public */,
+       1,    0,   89,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   85,    2, 0x08 /* Private */,
-       5,    1,   88,    2, 0x08 /* Private */,
-       6,    1,   91,    2, 0x08 /* Private */,
-       7,    1,   94,    2, 0x08 /* Private */,
-       8,    1,   97,    2, 0x08 /* Private */,
-       9,    1,  100,    2, 0x08 /* Private */,
-      10,    1,  103,    2, 0x08 /* Private */,
-      12,    0,  106,    2, 0x08 /* Private */,
-      13,    1,  107,    2, 0x08 /* Private */,
-      13,    0,  110,    2, 0x28 /* Private | MethodCloned */,
-      15,    0,  111,    2, 0x08 /* Private */,
-      16,    0,  112,    2, 0x08 /* Private */,
-      17,    0,  113,    2, 0x08 /* Private */,
+       3,    1,   90,    2, 0x08 /* Private */,
+       5,    1,   93,    2, 0x08 /* Private */,
+       6,    1,   96,    2, 0x08 /* Private */,
+       7,    1,   99,    2, 0x08 /* Private */,
+       8,    1,  102,    2, 0x08 /* Private */,
+       9,    1,  105,    2, 0x08 /* Private */,
+      10,    1,  108,    2, 0x08 /* Private */,
+      12,    0,  111,    2, 0x08 /* Private */,
+      13,    1,  112,    2, 0x08 /* Private */,
+      13,    0,  115,    2, 0x28 /* Private | MethodCloned */,
+      15,    0,  116,    2, 0x08 /* Private */,
+      16,    0,  117,    2, 0x08 /* Private */,
+      17,    0,  118,    2, 0x08 /* Private */,
+      18,    0,  119,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -105,6 +107,7 @@ static const uint qt_meta_data_HAddComponent[] = {
     QMetaType::Void, QMetaType::Int,   11,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   14,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -133,6 +136,7 @@ void HAddComponent::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 11: _t->refreshModel(); break;
         case 12: _t->on_pbConfirm_clicked(); break;
         case 13: _t->on_pbClose_clicked(); break;
+        case 14: _t->on_leCode_returnPressed(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -172,13 +176,13 @@ int HAddComponent::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

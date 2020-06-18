@@ -49,11 +49,11 @@ public:
     QFormLayout *formLayout_3;
     QLabel *label_6;
     QComboBox *cbTipoLotto;
-    QListView *lvRicette;
     QHBoxLayout *horizontalLayout;
     QRadioButton *rbProdotti;
     QRadioButton *rbImpasti;
     QRadioButton *rbRipieni;
+    QListView *lvRicette;
     QHBoxLayout *horizontalLayout_7;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton;
@@ -74,16 +74,16 @@ public:
     QLabel *label_10;
     QPlainTextEdit *tNote;
     QGridLayout *gridLayout;
-    QLineEdit *leQtyTotal;
-    QLabel *label_11;
     QLabel *label_3;
-    QLabel *label_9;
-    QLineEdit *leQuaRic;
-    QLabel *label_5;
     QLineEdit *leNuovoLot;
-    QComboBox *cbUm;
     QLabel *label_7;
+    QLabel *label_9;
+    QComboBox *cbUm;
+    QLabel *label_5;
+    QLineEdit *leQtyTotal;
     QDateEdit *dateEdit;
+    QLineEdit *leQuaRic;
+    QLabel *label_11;
     QPushButton *pushButton_11;
     QPushButton *pushButton_8;
     QCheckBox *checkBox_2;
@@ -134,6 +134,7 @@ public:
 
         deDataProd = new QDateTimeEdit(HProduction);
         deDataProd->setObjectName(QStringLiteral("deDataProd"));
+        deDataProd->setCalendarPopup(true);
 
         verticalLayout->addWidget(deDataProd);
 
@@ -165,13 +166,6 @@ public:
 
         verticalLayout->addLayout(formLayout_3);
 
-        lvRicette = new QListView(HProduction);
-        lvRicette->setObjectName(QStringLiteral("lvRicette"));
-        lvRicette->setMaximumSize(QSize(16777215, 16777215));
-        lvRicette->setFont(font);
-
-        verticalLayout->addWidget(lvRicette);
-
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         rbProdotti = new QRadioButton(HProduction);
@@ -192,6 +186,13 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+        lvRicette = new QListView(HProduction);
+        lvRicette->setObjectName(QStringLiteral("lvRicette"));
+        lvRicette->setMaximumSize(QSize(16777215, 16777215));
+        lvRicette->setFont(font);
+
+        verticalLayout->addWidget(lvRicette);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
@@ -328,26 +329,49 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        label_3 = new QLabel(HProduction);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout->addWidget(label_3, 4, 0, 1, 1);
+
+        leNuovoLot = new QLineEdit(HProduction);
+        leNuovoLot->setObjectName(QStringLiteral("leNuovoLot"));
+        leNuovoLot->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127);"));
+        leNuovoLot->setReadOnly(true);
+
+        gridLayout->addWidget(leNuovoLot, 0, 1, 1, 1);
+
+        label_7 = new QLabel(HProduction);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        gridLayout->addWidget(label_7, 2, 0, 1, 1);
+
+        label_9 = new QLabel(HProduction);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        gridLayout->addWidget(label_9, 1, 0, 1, 1);
+
+        cbUm = new QComboBox(HProduction);
+        cbUm->setObjectName(QStringLiteral("cbUm"));
+
+        gridLayout->addWidget(cbUm, 2, 1, 1, 1);
+
+        label_5 = new QLabel(HProduction);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout->addWidget(label_5, 0, 0, 1, 1);
+
         leQtyTotal = new QLineEdit(HProduction);
         leQtyTotal->setObjectName(QStringLiteral("leQtyTotal"));
         leQtyTotal->setClearButtonEnabled(true);
 
         gridLayout->addWidget(leQtyTotal, 4, 1, 1, 1);
 
-        label_11 = new QLabel(HProduction);
-        label_11->setObjectName(QStringLiteral("label_11"));
+        dateEdit = new QDateEdit(HProduction);
+        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        dateEdit->setCalendarPopup(true);
 
-        gridLayout->addWidget(label_11, 3, 0, 1, 1);
-
-        label_3 = new QLabel(HProduction);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        gridLayout->addWidget(label_3, 4, 0, 1, 1);
-
-        label_9 = new QLabel(HProduction);
-        label_9->setObjectName(QStringLiteral("label_9"));
-
-        gridLayout->addWidget(label_9, 1, 0, 1, 1);
+        gridLayout->addWidget(dateEdit, 1, 1, 1, 1);
 
         leQuaRic = new QLineEdit(HProduction);
         leQuaRic->setObjectName(QStringLiteral("leQuaRic"));
@@ -357,32 +381,10 @@ public:
 
         gridLayout->addWidget(leQuaRic, 3, 1, 1, 1);
 
-        label_5 = new QLabel(HProduction);
-        label_5->setObjectName(QStringLiteral("label_5"));
+        label_11 = new QLabel(HProduction);
+        label_11->setObjectName(QStringLiteral("label_11"));
 
-        gridLayout->addWidget(label_5, 0, 0, 1, 1);
-
-        leNuovoLot = new QLineEdit(HProduction);
-        leNuovoLot->setObjectName(QStringLiteral("leNuovoLot"));
-        leNuovoLot->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127);"));
-        leNuovoLot->setReadOnly(true);
-
-        gridLayout->addWidget(leNuovoLot, 0, 1, 1, 1);
-
-        cbUm = new QComboBox(HProduction);
-        cbUm->setObjectName(QStringLiteral("cbUm"));
-
-        gridLayout->addWidget(cbUm, 2, 1, 1, 1);
-
-        label_7 = new QLabel(HProduction);
-        label_7->setObjectName(QStringLiteral("label_7"));
-
-        gridLayout->addWidget(label_7, 2, 0, 1, 1);
-
-        dateEdit = new QDateEdit(HProduction);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
-
-        gridLayout->addWidget(dateEdit, 1, 1, 1, 1);
+        gridLayout->addWidget(label_11, 3, 0, 1, 1);
 
 
         verticalLayout_3->addLayout(gridLayout);
@@ -454,7 +456,7 @@ public:
     void retranslateUi(QWidget *HProduction)
     {
         HProduction->setWindowTitle(QApplication::translate("HProduction", "Produzione", 0));
-        label_8->setText(QApplication::translate("HProduction", "Clienti", 0));
+        label_8->setText(QApplication::translate("HProduction", "Destinazione:", 0));
         checkBox->setText(QApplication::translate("HProduction", "mostra subclienti", 0));
         label_6->setText(QApplication::translate("HProduction", "tipo di lotto:", 0));
         rbProdotti->setText(QApplication::translate("HProduction", "Prodotti", 0));
@@ -469,11 +471,11 @@ public:
         pushButton_2->setText(QApplication::translate("HProduction", "Rimuovi", 0));
         pushButton_7->setText(QApplication::translate("HProduction", "Aggiungi lotto fuori ricetta", 0));
         label_10->setText(QApplication::translate("HProduction", "Note:", 0));
-        label_11->setText(QApplication::translate("HProduction", "Quantit\303\240 ricetta:", 0));
         label_3->setText(QApplication::translate("HProduction", "Quantit\303\240 totale", 0));
+        label_7->setText(QApplication::translate("HProduction", "Unit\303\240 di misura:", 0));
         label_9->setText(QApplication::translate("HProduction", "Scadenza:", 0));
         label_5->setText(QApplication::translate("HProduction", "Nuovo lotto:", 0));
-        label_7->setText(QApplication::translate("HProduction", "Unit\303\240 di misura:", 0));
+        label_11->setText(QApplication::translate("HProduction", "Quantit\303\240 ricetta:", 0));
         pushButton_11->setText(QApplication::translate("HProduction", "Reset", 0));
         pushButton_8->setText(QApplication::translate("HProduction", "Stampa Ricetta", 0));
         checkBox_2->setText(QApplication::translate("HProduction", "Stampa ricetta originale", 0));
