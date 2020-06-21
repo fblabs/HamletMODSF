@@ -89,6 +89,7 @@ private slots:
 
     void on_leSearch_cursorPositionChanged(int arg1, int arg2);
     void on_leSearchCode_cursorPositionChanged(int arg1, int arg2);
+    void on_leLest_textChanged(const QString &arg1);
 };
 
 #endif // HPACKAGES_H

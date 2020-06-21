@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_HPackages_t {
-    QByteArrayData data[45];
-    char stringdata0[648];
+    QByteArrayData data[46];
+    char stringdata0[670];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -73,7 +73,8 @@ QT_MOC_LITERAL(40, 540, 25), // "on_leSearch_returnPressed"
 QT_MOC_LITERAL(41, 566, 33), // "on_leSearch_cursorPositionCha..."
 QT_MOC_LITERAL(42, 600, 4), // "arg1"
 QT_MOC_LITERAL(43, 605, 4), // "arg2"
-QT_MOC_LITERAL(44, 610, 37) // "on_leSearchCode_cursorPositio..."
+QT_MOC_LITERAL(44, 610, 37), // "on_leSearchCode_cursorPositio..."
+QT_MOC_LITERAL(45, 648, 21) // "on_leLest_textChanged"
 
     },
     "HPackages\0filterProducts\0\0"
@@ -94,7 +95,8 @@ QT_MOC_LITERAL(44, 610, 37) // "on_leSearchCode_cursorPositio..."
     "on_leSearchCode_returnPressed\0"
     "on_leSearch_returnPressed\0"
     "on_leSearch_cursorPositionChanged\0"
-    "arg1\0arg2\0on_leSearchCode_cursorPositionChanged"
+    "arg1\0arg2\0on_leSearchCode_cursorPositionChanged\0"
+    "on_leLest_textChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -104,7 +106,7 @@ static const uint qt_meta_data_HPackages[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      32,   14, // methods
+      33,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -112,38 +114,39 @@ static const uint qt_meta_data_HPackages[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  174,    2, 0x08 /* Private */,
-       3,    0,  175,    2, 0x08 /* Private */,
-       4,    0,  176,    2, 0x08 /* Private */,
-       5,    0,  177,    2, 0x08 /* Private */,
-       6,    0,  178,    2, 0x08 /* Private */,
-       7,    1,  179,    2, 0x08 /* Private */,
-       9,    1,  182,    2, 0x08 /* Private */,
-      11,    1,  185,    2, 0x08 /* Private */,
-      12,    1,  188,    2, 0x08 /* Private */,
-      14,    1,  191,    2, 0x08 /* Private */,
-      16,    1,  194,    2, 0x08 /* Private */,
-      17,    1,  197,    2, 0x08 /* Private */,
-      18,    0,  200,    2, 0x08 /* Private */,
-      19,    0,  201,    2, 0x08 /* Private */,
-      20,    0,  202,    2, 0x08 /* Private */,
-      21,    0,  203,    2, 0x08 /* Private */,
-      22,    0,  204,    2, 0x08 /* Private */,
-      23,    1,  205,    2, 0x08 /* Private */,
-      24,    0,  208,    2, 0x08 /* Private */,
-      25,    0,  209,    2, 0x08 /* Private */,
-      26,    0,  210,    2, 0x08 /* Private */,
-      27,    1,  211,    2, 0x08 /* Private */,
-      29,    1,  214,    2, 0x08 /* Private */,
-      31,    1,  217,    2, 0x08 /* Private */,
-      33,    1,  220,    2, 0x08 /* Private */,
-      35,    1,  223,    2, 0x08 /* Private */,
-      37,    1,  226,    2, 0x08 /* Private */,
-      38,    1,  229,    2, 0x08 /* Private */,
-      39,    0,  232,    2, 0x08 /* Private */,
-      40,    0,  233,    2, 0x08 /* Private */,
-      41,    2,  234,    2, 0x08 /* Private */,
-      44,    2,  239,    2, 0x08 /* Private */,
+       1,    0,  179,    2, 0x08 /* Private */,
+       3,    0,  180,    2, 0x08 /* Private */,
+       4,    0,  181,    2, 0x08 /* Private */,
+       5,    0,  182,    2, 0x08 /* Private */,
+       6,    0,  183,    2, 0x08 /* Private */,
+       7,    1,  184,    2, 0x08 /* Private */,
+       9,    1,  187,    2, 0x08 /* Private */,
+      11,    1,  190,    2, 0x08 /* Private */,
+      12,    1,  193,    2, 0x08 /* Private */,
+      14,    1,  196,    2, 0x08 /* Private */,
+      16,    1,  199,    2, 0x08 /* Private */,
+      17,    1,  202,    2, 0x08 /* Private */,
+      18,    0,  205,    2, 0x08 /* Private */,
+      19,    0,  206,    2, 0x08 /* Private */,
+      20,    0,  207,    2, 0x08 /* Private */,
+      21,    0,  208,    2, 0x08 /* Private */,
+      22,    0,  209,    2, 0x08 /* Private */,
+      23,    1,  210,    2, 0x08 /* Private */,
+      24,    0,  213,    2, 0x08 /* Private */,
+      25,    0,  214,    2, 0x08 /* Private */,
+      26,    0,  215,    2, 0x08 /* Private */,
+      27,    1,  216,    2, 0x08 /* Private */,
+      29,    1,  219,    2, 0x08 /* Private */,
+      31,    1,  222,    2, 0x08 /* Private */,
+      33,    1,  225,    2, 0x08 /* Private */,
+      35,    1,  228,    2, 0x08 /* Private */,
+      37,    1,  231,    2, 0x08 /* Private */,
+      38,    1,  234,    2, 0x08 /* Private */,
+      39,    0,  237,    2, 0x08 /* Private */,
+      40,    0,  238,    2, 0x08 /* Private */,
+      41,    2,  239,    2, 0x08 /* Private */,
+      44,    2,  244,    2, 0x08 /* Private */,
+      45,    1,  249,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -178,6 +181,7 @@ static const uint qt_meta_data_HPackages[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,   42,   43,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,   42,   43,
+    QMetaType::Void, QMetaType::QString,   42,
 
        0        // eod
 };
@@ -232,6 +236,7 @@ void HPackages::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 29: _t->on_leSearch_returnPressed(); break;
         case 30: _t->on_leSearch_cursorPositionChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 31: _t->on_leSearchCode_cursorPositionChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 32: _t->on_leLest_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -262,13 +267,13 @@ int HPackages::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 32)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 32;
+        _id -= 33;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 32)
+        if (_id < 33)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 32;
+        _id -= 33;
     }
     return _id;
 }

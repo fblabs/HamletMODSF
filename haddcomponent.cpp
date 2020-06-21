@@ -187,7 +187,6 @@ void HAddComponent::updateComposizioneLot(int idoperazione)
     QSqlQuery q(db);
     QString sql="insert into composizione_lot(ID_lotto,operazione) values (:idlotto,:idop)";
     q.prepare(sql);
-    qDebug()<<idlotto;
     q.bindValue(":idlotto",idlotto);
     q.bindValue(":idop",idoperazione);
     bool b=false;

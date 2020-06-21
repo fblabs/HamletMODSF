@@ -127,7 +127,7 @@ void HAlarm::filterTargets()
 
    // seleziono le righe del modello
     bool usaidgruppo=ui->tvMain->model()->index(ui->tvMain->selectionModel()->currentIndex().row(),6).data(0).toBool();
-    qDebug()<<"usaidgruppo: "<<QString::number(usaidgruppo);
+
     int colonnaconids;
     int number=0;
     QString idsindb;
@@ -147,7 +147,7 @@ void HAlarm::filterTargets()
 
 
     idsindb=ui->tvMain->model()->index(ui->tvMain->selectionModel()->currentIndex().row(),colonnaconids).data(0).toString();
- qDebug()<<"idsindb"<<idsindb<<ui->tvMain->model()->index(ui->tvMain->selectionModel()->currentIndex().row(),colonnaconids).data(0).toString();
+
     QStringList indexes=getIndexes(idsindb);
 
     QString filter;
@@ -156,7 +156,7 @@ void HAlarm::filterTargets()
 
     indexes=getIndexes(idsindb);
     number=indexes.count();
-qDebug()<<"indexes,count: "<<number;
+
 
          if (number>=1)
          {
@@ -167,8 +167,6 @@ qDebug()<<"indexes,count: "<<number;
                        QString fid=indexes.at(f);
 
                        fid=fid.replace("-",",");
-
-                       qDebug()<<"fid: "<<fid;
 
                        filter += fid;
 
@@ -192,7 +190,7 @@ qDebug()<<"indexes,count: "<<number;
     }
 
 
-    qDebug()<<"filtertargets: action: "<<action<<"filter: "<<filter<<"number: "<<number;
+
 
     QSqlTableModel* lvmod=static_cast<QSqlTableModel*> (ui->lvTarget->model());
     lvmod->setFilter(filter);

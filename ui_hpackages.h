@@ -155,6 +155,7 @@ public:
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         label_7 = new QLabel(HPackages);
         label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setMinimumSize(QSize(50, 0));
         label_7->setMaximumSize(QSize(30, 16777215));
 
         horizontalLayout_7->addWidget(label_7);
@@ -200,6 +201,7 @@ public:
 
         label_6 = new QLabel(HPackages);
         label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setMinimumSize(QSize(50, 0));
         label_6->setMaximumSize(QSize(60, 16777215));
 
         gridLayout->addWidget(label_6, 0, 0, 1, 1);
@@ -221,6 +223,8 @@ public:
         formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
         label_5 = new QLabel(HPackages);
         label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setMinimumSize(QSize(50, 0));
+        label_5->setMaximumSize(QSize(60, 16777215));
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, label_5);
 
@@ -452,17 +456,11 @@ public:
 
         gridLayout_2->addLayout(horizontalLayout, 1, 0, 1, 1);
 
-        dateEdit->raise();
-        label_9->raise();
-        leSearch->raise();
-        label_10->raise();
-        label_12->raise();
         QWidget::setTabOrder(cbProdotti, lvEan);
         QWidget::setTabOrder(lvEan, leLest);
         QWidget::setTabOrder(leLest, dateEdit);
         QWidget::setTabOrder(dateEdit, leQuantLot);
-        QWidget::setTabOrder(leQuantLot, teNote);
-        QWidget::setTabOrder(teNote, pbCrea);
+        QWidget::setTabOrder(leQuantLot, pbCrea);
         QWidget::setTabOrder(pbCrea, pbAnnulla);
         QWidget::setTabOrder(pbAnnulla, rbTutti);
         QWidget::setTabOrder(rbTutti, rbProdottiFiniti);

@@ -23,7 +23,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     user=puser;
     db=pdb;
 
-    basefilter="year(lotti_view.scadenza) > '" +QDate::currentDate().addYears(1).toString("yyyy-MM-dd")+"' or lotti_view.scadenza is null";
+    basefilter="year(lotti_view.scadenza) < '" +QDate::currentDate().addYears(1).toString("yyyy-MM-dd")+"' or lotti_view.scadenza is null";
    // // qDebug()<<basefilter;
 
 
@@ -259,14 +259,11 @@ void HPackages::on_pbCrea_clicked()
 
     enableUI(false);
 
-    ok=ui->leQuantLot->text().toDouble(&ok);
-    if(!ok)
-    {
-        QMessageBox::warning(this,QApplication::applicationName(),"Quantità non valida",QMessageBox::Ok);
-        return;
-    }
 
-    createNewLot();
+
+    if(ui->leLest->text().length()<1){
+     ui->leLest->setStyleSheet("background-color:rgb(255,0,0);");
+    }
     createNewLotInterno();
     mod=new QStandardItemModel();
     ui->tvPack->setModel(mod);
@@ -505,9 +502,6 @@ bool HPackages::saveNewLotInLotdef(QString lotto)
 
     b = q.exec();
 
-    qDebug()<<"saveNewLot"<<q.lastError().text();
-
-
     return b;
 }
 
@@ -586,16 +580,16 @@ bool HPackages::unloadNewLotComponents(int nlot)
 
         b=q.exec();
         operazione=q.lastInsertId().toInt();
- // // qDebug()<<"unloadLOT b:"+b<<q.lastError().text()<<q.boundValue(3).toString()<<QString::number(prodottodascaricare);
 
 
-   sql="insert into composizione_lot (id_lotto,operazione) values (:nlot,:operazione)";
-   q.prepare(sql);
-   q.bindValue(":nlot",QVariant(nlot));
-   q.bindValue(":operazione",QVariant(operazione));
-   b=q.exec();
 
-  // // qDebug()<<"COMPOSIZIONE SCARICO COMPONENHTE:"<<"nlot"<<nlot<<"operazione"<<operazione;
+       sql="insert into composizione_lot (id_lotto,operazione) values (:nlot,:operazione)";
+       q.prepare(sql);
+       q.bindValue(":nlot",QVariant(nlot));
+       q.bindValue(":operazione",QVariant(operazione));
+       b=q.exec();
+
+
         if (!b)return false;
 
     }
@@ -661,7 +655,7 @@ int HPackages::getumidfromdesc(QString pdesc)
 
     int res=q->value(0).toInt();
 
-   // // qDebug()<<res<<pdesc;
+
 
     return res;
 
@@ -674,7 +668,15 @@ void HPackages::on_pushButton_3_clicked()
 {
 
 
-bool b;
+bool b=false;
+bool ok=false;
+
+    ok=ui->leQuantLot->text().toDouble(&ok);
+    if(!ok)
+    {
+        QMessageBox::warning(this,QApplication::applicationName(),"Quantità non valida",QMessageBox::Ok);
+        return;
+    }
 
 
     if(QMessageBox::question(this,QApplication::applicationName(),"Salvare il nuovo lotto?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
@@ -710,6 +712,8 @@ void HPackages::on_pbAnnulla_clicked()
 {
     enableUI(true);
     resetForm();
+    ui->leLest->setStyleSheet("background-color:rgb(255,255,255);");
+
 }
 
 
@@ -717,10 +721,10 @@ void HPackages::on_pbAnnulla_clicked()
 
 void HPackages::on_rbTutti_toggled(bool checked)
 {
- // // qDebug()<<basefilter +"- FILTER "<<tmLots->filter();
+
   if (checked)
   {
-      tmLots->setFilter(basefilter);
+      tmLots->setFilter("("+basefilter+")");
 
 
   }
@@ -741,7 +745,7 @@ void HPackages::on_rbProdottiFiniti_toggled(bool checked)
 
     }
 
-    qDebug()<<tmLots->filter()<<tmLots->lastError();
+
 
 }
 
@@ -754,22 +758,26 @@ void HPackages::on_rbConfezionamenti_toggled(bool checked)
 {
 
     if (checked)
-    {   QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.`Tipo prodotto`=5";
+    {    QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.`Tipo prodotto`=5";
+        tmLots->setFilter(flt);
+        ui->leSearch->setText("");
         tmLots->setFilter(flt);
         ui->leSearch->setText("");
 
     }
 
-    qDebug()<<"confezionamenti"<<tmLots->filter()<<tmLots->lastError();
+
 }
 
 
 void HPackages::on_leSearchCode_returnPressed()
 {
     QString arg1=ui->leSearchCode->text();
-    QString flt=" and lotti_view.codprodotto like '"+arg1+"%'";
+    QString flt=" and lotti_view.codprodotto =" +arg1;
     QString filter="";
     QString tipo;
+
+
 
 
     if(arg1.length()>0)
@@ -783,22 +791,23 @@ void HPackages::on_leSearchCode_returnPressed()
         }
         else if(ui->rbConfezionamenti->isChecked())
         {
-            tipo=" and lotti_view.tipolot= 4 ";
+            tipo=" and lotti_view.tipolot=1 ";
             filter.append(tipo);
         }
 
     }
     else
     {
-         filter=basefilter;
+          filter="("+basefilter + ")";
     }
 
 
     tmLots->setFilter(filter);
 
     ui->leSearchCode->setText(QString());
+   // ui->rbTutti->setChecked(true);
 
-    qDebug()<<tmLots->lastError().text();
+    qDebug()<<tmLots->filter()<<tmLots->lastError().text();
 
 
 }
@@ -820,14 +829,14 @@ void HPackages::on_leSearch_returnPressed()
 
 
 
-            if (ui->rbProdottiFiniti->isChecked())
+           if (ui->rbProdottiFiniti->isChecked())
             {
                 tipo=" and lotti_view.tipolot=3 ";
                 filter.append(tipo);
             }
             else if(ui->rbConfezionamenti->isChecked())
             {
-                tipo=" and lotti_view.tipolot= 4 ";
+                tipo=" and lotti_view.`Tipo prodotto`= 5 ";
                 filter.append(tipo);
             }
         }
@@ -840,8 +849,9 @@ void HPackages::on_leSearch_returnPressed()
         tmLots->setFilter(filter);
 
         ui->leSearch->setText(QString());
+       // ui->rbTutti->setChecked(true);
 
-        qDebug()<<tmLots->lastError().text();
+
 
 }
 
@@ -855,4 +865,18 @@ void HPackages::on_leSearch_cursorPositionChanged(int arg1, int arg2)
 void HPackages::on_leSearchCode_cursorPositionChanged(int arg1, int arg2)
 {
     ui->leSearch->setText(QString());
+}
+
+void HPackages::on_leLest_textChanged(const QString &arg1)
+{
+      if (arg1.length()>0)
+      {
+
+          ui->leLest->setStyleSheet("background-color:rgb(255,255,255);");
+
+      }
+      else
+      {
+          ui->leLest->setStyleSheet("background-color:rgb(255,50,50);");
+      }
 }
