@@ -23,6 +23,8 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     user=puser;
     db=pdb;
 
+
+
     basefilter="year(lotti_view.scadenza) < '" +QDate::currentDate().addYears(1).toString("yyyy-MM-dd")+"' or lotti_view.scadenza is null";
    // // qDebug()<<basefilter;
 
@@ -34,6 +36,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
     tmLots=new QSqlTableModel(0,db);
     tmLots->setTable("lotti_view");
+    tmLots->setSort(3,Qt::DescendingOrder);
     tmLots->setFilter(basefilter);
     tmLots->select();
 
@@ -43,7 +46,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     tmProdotti->setSort(2,Qt::AscendingOrder);
     tmProdotti->select();
 
-    qDebug()<<tmProdotti->query().lastQuery()<<tmProdotti->query().lastError().text();
+
 
     tmUnitaMisura->setTable("unita_di_misura");
     tmUnitaMisura->setSort(1,Qt::AscendingOrder);
@@ -66,9 +69,6 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     ui->cbProdotti->setCompleter(compProdotti);
 
     ui->dateEdit->setDate(QDate::currentDate().addMonths(2));
-
-
-
 
     ui->tvLots->setModel(tmLots);
    // // qDebug()<<tmLots->lastError().text();
@@ -668,50 +668,58 @@ void HPackages::on_pushButton_3_clicked()
 {
 
 
-bool b=false;
-bool ok=false;
-
-    ok=ui->leQuantLot->text().toDouble(&ok);
-    if(!ok)
-    {
-        QMessageBox::warning(this,QApplication::applicationName(),"Quantità non valida",QMessageBox::Ok);
-        return;
-    }
+  saveLot();
 
 
-    if(QMessageBox::question(this,QApplication::applicationName(),"Salvare il nuovo lotto?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
-    {
-
-       db.transaction();
-       b=saveLot(ui->leNewLot->text());
+}
 
 
-        if(b)
+void HPackages::saveLot()
+{
+    bool b=false;
+    bool ok=false;
+
+        ok=ui->leQuantLot->text().toDouble(&ok);
+        if(!ok)
         {
-            db.commit();
-            QMessageBox::information(this,QApplication::applicationName(),"Lotto salvato",QMessageBox::Ok);
-
-        }
-        else
-        {
-            db.rollback();
-            QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il nuovo lotto",QMessageBox::Ok);
-            enableUI(true);
-
+            QMessageBox::warning(this,QApplication::applicationName(),"Quantità non valida",QMessageBox::Ok);
+            return;
         }
 
-       resetForm();
 
-    }
+        if(QMessageBox::question(this,QApplication::applicationName(),"Salvare il nuovo lotto?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+        {
+
+           db.transaction();
+           b=saveLot(ui->leNewLot->text());
 
 
+            if(b)
+            {
+                db.commit();
+                enableUI(true);
+                QMessageBox::information(this,QApplication::applicationName(),"Lotto salvato",QMessageBox::Ok);
+
+
+            }
+            else
+            {
+                db.rollback();
+                QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il nuovo lotto",QMessageBox::Ok);
+                enableUI(true);
+
+            }
+
+           resetForm();
+
+        }
 
 }
 
 void HPackages::on_pbAnnulla_clicked()
 {
-    enableUI(true);
     resetForm();
+    enableUI(true);
     ui->leLest->setStyleSheet("background-color:rgb(255,255,255);");
 
 }
@@ -725,6 +733,8 @@ void HPackages::on_rbTutti_toggled(bool checked)
   if (checked)
   {
       tmLots->setFilter("("+basefilter+")");
+
+      qDebug()<<tmLots->filter()<<tmLots->lastError().text();
 
 
   }
@@ -761,9 +771,6 @@ void HPackages::on_rbConfezionamenti_toggled(bool checked)
     {    QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.`Tipo prodotto`=5";
         tmLots->setFilter(flt);
         ui->leSearch->setText("");
-        tmLots->setFilter(flt);
-        ui->leSearch->setText("");
-
     }
 
 
@@ -801,8 +808,7 @@ void HPackages::on_leSearchCode_returnPressed()
           filter="("+basefilter + ")";
     }
 
-
-    tmLots->setFilter(filter);
+   tmLots->setFilter(filter);
 
     ui->leSearchCode->setText(QString());
    // ui->rbTutti->setChecked(true);
@@ -831,12 +837,12 @@ void HPackages::on_leSearch_returnPressed()
 
            if (ui->rbProdottiFiniti->isChecked())
             {
-                tipo=" and lotti_view.tipolot=3 ";
+                tipo=" and lotti_view.tipolot=3";
                 filter.append(tipo);
             }
             else if(ui->rbConfezionamenti->isChecked())
             {
-                tipo=" and lotti_view.`Tipo prodotto`= 5 ";
+                tipo=" and lotti_view.`Tipo prodotto`= 5";
                 filter.append(tipo);
             }
         }

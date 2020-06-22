@@ -41,6 +41,10 @@ private:
     QStandardItemModel *mod;
     int newlotid;
     QString basefilter;
+private slots:
+
+    void saveLot();
+
 
 
 
