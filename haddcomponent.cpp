@@ -134,7 +134,7 @@ void HAddComponent::refreshModel()
     QString data=QDate::currentDate().toString("yyyy-MM-dd");
 
     //QString sql="select lotdef.ID,lotdef.lot,prodotti.descrizione,lotdef.data ,lotdef.scadenza,lotdef.um from  lotdef,prodotti where prodotti.ID=lotdef.prodotto and prodotti.id=:prodid and lotdef.scadenza < :data ORDER BY prodotti.descrizione asc,lotdef.scadenza desc";
-    QString sql="select lotdef.ID,lotdef.lot,prodotti.descrizione,lotdef.data ,lotdef.scadenza,lotdef.um from  lotdef,prodotti where prodotti.ID=lotdef.prodotto and prodotti.id=:prodid and (lotdef.scadenza < :data or lotdef.scadenza is not null) ORDER BY prodotti.descrizione asc,lotdef.scadenza desc";
+    QString sql="select lotdef.ID,lotdef.lot,prodotti.descrizione,lotdef.data ,lotdef.scadenza,lotdef.um from  lotdef,prodotti where prodotti.ID=lotdef.prodotto and prodotti.id=:prodid and (lotdef.scadenza < :data or lotdef.scadenza is null) ORDER BY lotdef.data desc";
     q.prepare(sql);
     q.bindValue(":prodid",static_cast<QSqlTableModel*>(ui->cbProdotto->model())->index(ui->cbProdotto->currentIndex(),0).data(0).toInt());
     q.bindValue(":data",QVariant(data));
@@ -233,6 +233,7 @@ void HAddComponent::on_leCode_returnPressed()
     if(filter.length()>0)
     {
         prodmod->setFilter("codice="+filter);
+
     }else
     {
         prodmod->setFilter(QString());

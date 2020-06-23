@@ -253,7 +253,7 @@ void HModifyLot::on_pbComposizione_clicked()
 
 void HModifyLot::on_pbClose_clicked()
 {
-   if(QMessageBox::question(this,QApplication::applicationName(),"Chiudere? ATTENZIONE le modifiche verranno perse",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+   if(QMessageBox::question(this,QApplication::applicationName(),"Chiudere? ATTENZIONE LE MODIFICHE NON SALVATE verranno perse",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
     {
 
         close();
