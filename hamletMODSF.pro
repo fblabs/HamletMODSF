@@ -38,7 +38,6 @@ SOURCES += main.cpp\
     hprodottinew.cpp \
     hwarehouse.cpp \
     hmodifyprod.cpp \
-    hpackages.cpp \
     hmodricette.cpp \
     hrecipeaddrow.cpp \
     hlotti.cpp \
@@ -75,7 +74,9 @@ SOURCES += main.cpp\
     hnewrecipe.cpp \
     hlotmod.cpp \
     haddcomponent.cpp \
-    hpackview.cpp
+    hpackview.cpp \
+    hpackages.cpp
+
 
 HEADERS  += mainwindow.h \
     huser.h \
@@ -139,7 +140,8 @@ HEADERS  += mainwindow.h \
     hnewrecipe.h \
     hlotmod.h \
     haddcomponent.h \
-    hpackview.h
+    hpackview.h \
+
 
 
 

@@ -25,8 +25,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
 
 
-    basefilter="year(lotti_view.scadenza) < '" +QDate::currentDate().addYears(1).toString("yyyy-MM-dd")+"' or lotti_view.scadenza is null";
-   // // qDebug()<<basefilter;
+    basefilter="lotti_view.scadenza  >'" +QDate::currentDate().toString("yyyy-MM-dd")+"' or lotti_view.scadenza is null";
 
 
     tmProdotti = new QSqlTableModel(0,db);
@@ -39,6 +38,8 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
     tmLots->setSort(3,Qt::DescendingOrder);
     tmLots->setFilter(basefilter);
     tmLots->select();
+
+    qDebug()<<tmLots->filter()<<tmLots->lastError().text();
 
 
     tmProdotti->setTable("prodotti");
@@ -768,7 +769,7 @@ void HPackages::on_rbConfezionamenti_toggled(bool checked)
 {
 
     if (checked)
-    {    QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.`Tipo prodotto`=5";
+    {   QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.`Tipo prodotto`=5";
         tmLots->setFilter(flt);
         ui->leSearch->setText("");
     }
@@ -793,12 +794,12 @@ void HPackages::on_leSearchCode_returnPressed()
 
         if (ui->rbProdottiFiniti->isChecked())
         {
-            tipo=" and lotti_view.tipolot=3 ";
+            tipo=" and lotti_view.tipolot=3";
             filter.append(tipo);
         }
         else if(ui->rbConfezionamenti->isChecked())
         {
-            tipo=" and lotti_view.tipolot=1 ";
+            tipo=" and lotti_view.tipolot=1";
             filter.append(tipo);
         }
 
@@ -830,8 +831,6 @@ void HPackages::on_leSearch_returnPressed()
         {
 
             filter=filter.append(" and lotti_view.prodotto  like '"+ arg1 +"%'");
-
-
 
 
 

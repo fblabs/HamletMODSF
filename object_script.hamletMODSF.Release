@@ -25,7 +25,6 @@ INPUT(
 ./release/hprodottinew.o
 ./release/hwarehouse.o
 ./release/hmodifyprod.o
-./release/hpackages.o
 ./release/hmodricette.o
 ./release/hrecipeaddrow.o
 ./release/hlotti.o
@@ -63,6 +62,7 @@ INPUT(
 ./release/hlotmod.o
 ./release/haddcomponent.o
 ./release/hpackview.o
+./release/hpackages.o
 ./release/qrc_icons.o
 ./release/moc_mainwindow.o
 ./release/moc_huser.o

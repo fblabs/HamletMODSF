@@ -25,7 +25,6 @@ INPUT(
 ./debug/hprodottinew.o
 ./debug/hwarehouse.o
 ./debug/hmodifyprod.o
-./debug/hpackages.o
 ./debug/hmodricette.o
 ./debug/hrecipeaddrow.o
 ./debug/hlotti.o
@@ -63,6 +62,7 @@ INPUT(
 ./debug/hlotmod.o
 ./debug/haddcomponent.o
 ./debug/hpackview.o
+./debug/hpackages.o
 ./debug/qrc_icons.o
 ./debug/moc_mainwindow.o
 ./debug/moc_huser.o
