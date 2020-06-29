@@ -47,17 +47,18 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
    tbm->setTable("lotti_view");
 
 
-   tbm->setHeaderData(3,Qt::Horizontal,QObject::tr("Data"));
-   tbm->setHeaderData(4,Qt::Horizontal,QObject::tr("Lotto"));
-   tbm->setHeaderData(5,Qt::Horizontal,QObject::tr("Lotto di uscita"));
-   tbm->setHeaderData(6,Qt::Horizontal,QObject::tr("Codice Prod."));
-   tbm->setHeaderData(7,Qt::Horizontal,QObject::tr("Prodotto"));
-   tbm->setHeaderData(8,Qt::Horizontal,QObject::tr("Giacenza"));
-   tbm->setHeaderData(9,Qt::Horizontal,QObject::tr("Unità di misura"));
-   tbm->setHeaderData(10,Qt::Horizontal,QObject::tr("Scadenza"));
-   tbm->setHeaderData(11,Qt::Horizontal,QObject::tr("Provenienza"));
-   tbm->setHeaderData(12,Qt::Horizontal,QObject::tr("Lotto Fornitore"));
-   tbm->setHeaderData(13,Qt::Horizontal,QObject::tr("Note"));
+   tbm->setHeaderData(4,Qt::Horizontal,QObject::tr("Data"));
+   tbm->setHeaderData(5,Qt::Horizontal,QObject::tr("Lotto Interno"));
+   tbm->setHeaderData(6,Qt::Horizontal,QObject::tr("LOTTO"));
+   tbm->setHeaderData(7,Qt::Horizontal,QObject::tr("Codice Prod."));
+   tbm->setHeaderData(8,Qt::Horizontal,QObject::tr("Prodotto"));
+   tbm->setHeaderData(9,Qt::Horizontal,QObject::tr("Giacenza"));
+   tbm->setHeaderData(10,Qt::Horizontal,QObject::tr("Unità di misura"));
+   tbm->setHeaderData(11,Qt::Horizontal,QObject::tr("Scadenza"));
+   tbm->setHeaderData(12,Qt::Horizontal,QObject::tr("Provenienza"));
+   tbm->setHeaderData(13,Qt::Horizontal,QObject::tr("Lotto Fornitore"));
+   tbm->setHeaderData(14,Qt::Horizontal,QObject::tr("Bolla"));
+   tbm->setHeaderData(16,Qt::Horizontal,QObject::tr("Note"));
 
 
 
@@ -72,13 +73,16 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
   // tbm->setFilter("lotdef.attivo>0");*
 
    ui->twLots->setModel(tbm);
-   ui->twLots->setItemDelegate(new QSqlRelationalDelegate(tbm));
-   ui->twLots->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-   ui->twLots->setColumnWidth(11,10);
+   //ui->twLots->setItemDelegate(new QSqlRelationalDelegate(tbm));
+  // ui->twLots->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+   ui->twLots->horizontalHeader()->setStretchLastSection(true);
+   ui->twLots->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+  // ui->twLots->setColumnWidth(11,10);
    ui->twLots->setColumnHidden(0,true);
    ui->twLots->setColumnHidden(1,true);
    ui->twLots->setColumnHidden(2,true);
-   ui->twLots->setColumnHidden(13,true);
+   ui->twLots->setColumnHidden(3,true);
    ui->twLots->setCurrentIndex(ui->twLots->model()->index(0,0));
    ui->pushButton_7->setEnabled(false);
 

@@ -799,7 +799,7 @@ void HPackages::on_leSearchCode_returnPressed()
         }
         else if(ui->rbConfezionamenti->isChecked())
         {
-            tipo=" and lotti_view.tipolot=1";
+            tipo=" and lotti_view.`Tipo prodotto`=5";
             filter.append(tipo);
         }
 

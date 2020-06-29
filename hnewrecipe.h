@@ -26,6 +26,7 @@ private slots:
     void on_rbProdotti_toggled(bool checked);
     void on_pbAbort_clicked();
     void on_pbOK_clicked();
+    void on_rbConfezionamenti_toggled(bool checked);
 };
 
 #endif // HNEWRECIPE_H

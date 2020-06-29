@@ -57,3 +57,11 @@ void HNewRecipe::on_pbOK_clicked()
         close();
     }
 }
+
+void HNewRecipe::on_rbConfezionamenti_toggled(bool checked)
+{
+    if(checked)
+    {
+        tipo=5;
+    }
+}

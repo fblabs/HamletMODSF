@@ -1,7 +1,7 @@
 #include "hreadonlymodellots.h"
 #include <QSqlRelationalTableModel>
 #include <QColor>
-// #include <QDebug>
+#include <QDebug>
 #include <QIcon>
 
 
@@ -17,22 +17,7 @@ Qt::ItemFlags HReadOnlyModelLots::flags(const QModelIndex & item ) const
 
 Qt::ItemFlags flags=QSqlRelationalTableModel::flags(item);
 
-   if (item.column() < 12)
-   {
-
-      return QSqlRelationalTableModel::flags(item) & ~Qt::ItemIsEditable;
-
-   }
-   else if (item.column()==12)
-   {
-
-       flags |= Qt::ItemIsUserCheckable;
-       flags |= Qt::ItemIsEditable;
-       flags |= Qt::ItemIsEnabled;
-
-       return flags;
-   }
-   else if (item.column()==13)
+ /*  if (item.column()==15)
    {
 
       // flags &= Qt::ItemIsUserCheckable;
@@ -44,7 +29,7 @@ Qt::ItemFlags flags=QSqlRelationalTableModel::flags(item);
    else
    {
       return QSqlRelationalTableModel::flags(item)  ;
-   }
+   }*/
 
 
  return QSqlRelationalTableModel::flags(item) ;
@@ -54,36 +39,27 @@ Qt::ItemFlags flags=QSqlRelationalTableModel::flags(item);
 QVariant HReadOnlyModelLots::data( const QModelIndex & item, int role /*= Qt::DisplayRole*/ ) const
 {
     int row=item.row();
-    QString sTipoLotto= QSqlRelationalTableModel::data(this->index(row,12)).toString();
-    int tipo;
 
-    if (sTipoLotto == "MATERIE PRIME")
-       tipo=1;
-    else if (sTipoLotto == "SEMILAVORATO")
-       tipo=2;
-    else if (sTipoLotto =="PRODOTTO FINITO")
-       tipo=3;
-    else if (sTipoLotto == "PACKAGE")
-       tipo=4;
+    int tipo=QSqlRelationalTableModel::data(this->index(row,3)).toInt();
 
 
-   if (item.column()==1 && tipo==1 && role==Qt::DecorationRole)
+   if (item.column()==3 && tipo==1 && role==Qt::DecorationRole)
    {
      return QIcon(":/Resources/fork-1-icon.png");
    }
-   if (item.column()==1 && tipo==2 && role==Qt::DecorationRole)
+   if (item.column()==3 && tipo==2 && role==Qt::DecorationRole)
    {
      return QIcon(":/Resources/Actions-configure-icon.png");
    }
-   if (item.column()==1 && tipo==3 && role==Qt::DecorationRole)
+   if (item.column()==3 && tipo==3 && role==Qt::DecorationRole)
    {
       return QIcon(":/Resources/Gears.PNG");
    }
-  if (item.column()==1 && tipo==4 && role==Qt::DecorationRole)
+  if (item.column()==3 && tipo==4 && role==Qt::DecorationRole)
    {
     return QIcon(":/Resources/Box.PNG");
    }
-   if (item.column()==14)
+   if (item.column()==15)
    {
 
 

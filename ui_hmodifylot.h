@@ -42,15 +42,24 @@ public:
     QLineEdit *leProd;
     QLabel *label_5;
     QLineEdit *leGiac;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_8;
+    QLineEdit *leEan;
+    QCheckBox *cbAttivo;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_9;
+    QComboBox *cbtipo;
+    QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_2;
     QComboBox *cbUm;
     QSpacerItem *horizontalSpacer_5;
     QGridLayout *gridLayout;
-    QDateEdit *deScad;
     QLabel *label_4;
+    QDateEdit *deScad;
     QCheckBox *cbScad;
-    QCheckBox *cbAttivo;
+    QSpacerItem *horizontalSpacer_6;
     QHBoxLayout *horizontalLayout;
     QLabel *label_6;
     QComboBox *cbAnag;
@@ -58,16 +67,9 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_7;
     QLineEdit *leLotFornitore;
+    QLabel *label_10;
+    QLineEdit *leBolla;
     QSpacerItem *horizontalSpacer_2;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *label_8;
-    QLineEdit *leEan;
-    QSpacerItem *horizontalSpacer_3;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_9;
-    QComboBox *cbtipo;
-    QSpacerItem *horizontalSpacer_4;
-    QHBoxLayout *horizontalLayout_7;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_11;
     QPlainTextEdit *ptNote;
@@ -82,7 +84,7 @@ public:
         if (HModifyLot->objectName().isEmpty())
             HModifyLot->setObjectName(QStringLiteral("HModifyLot"));
         HModifyLot->setWindowModality(Qt::ApplicationModal);
-        HModifyLot->resize(914, 574);
+        HModifyLot->resize(914, 393);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -97,7 +99,8 @@ public:
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         label = new QLabel(HModifyLot);
         label->setObjectName(QStringLiteral("label"));
-        label->setMaximumSize(QSize(40, 16777215));
+        label->setMinimumSize(QSize(60, 0));
+        label->setMaximumSize(QSize(70, 16777215));
 
         horizontalLayout_3->addWidget(label);
 
@@ -153,6 +156,55 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        label_8 = new QLabel(HModifyLot);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        horizontalLayout_5->addWidget(label_8);
+
+        leEan = new QLineEdit(HModifyLot);
+        leEan->setObjectName(QStringLiteral("leEan"));
+        leEan->setMinimumSize(QSize(100, 0));
+        leEan->setMaximumSize(QSize(100, 16777215));
+        leEan->setStyleSheet(QStringLiteral("background-color: rgb(200, 255, 240);"));
+
+        horizontalLayout_5->addWidget(leEan);
+
+        cbAttivo = new QCheckBox(HModifyLot);
+        cbAttivo->setObjectName(QStringLiteral("cbAttivo"));
+
+        horizontalLayout_5->addWidget(cbAttivo);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        label_9 = new QLabel(HModifyLot);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        horizontalLayout_6->addWidget(label_9);
+
+        cbtipo = new QComboBox(HModifyLot);
+        cbtipo->setObjectName(QStringLiteral("cbtipo"));
+        cbtipo->setMinimumSize(QSize(300, 0));
+        cbtipo->setEditable(true);
+        cbtipo->setInsertPolicy(QComboBox::NoInsert);
+
+        horizontalLayout_6->addWidget(cbtipo);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_4);
+
+
+        horizontalLayout_5->addLayout(horizontalLayout_6);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
+
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         label_2 = new QLabel(HModifyLot);
@@ -163,7 +215,8 @@ public:
         cbUm = new QComboBox(HModifyLot);
         cbUm->setObjectName(QStringLiteral("cbUm"));
         cbUm->setEditable(true);
-        cbUm->setInsertPolicy(QComboBox::InsertAtBottom);
+        cbUm->setInsertPolicy(QComboBox::NoInsert);
+        cbUm->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
         horizontalLayout_9->addWidget(cbUm);
 
@@ -176,25 +229,30 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        deScad = new QDateEdit(HModifyLot);
-        deScad->setObjectName(QStringLiteral("deScad"));
-
-        gridLayout->addWidget(deScad, 1, 2, 1, 1);
-
         label_4 = new QLabel(HModifyLot);
         label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setMaximumSize(QSize(60, 16777215));
 
         gridLayout->addWidget(label_4, 1, 0, 1, 1);
 
+        deScad = new QDateEdit(HModifyLot);
+        deScad->setObjectName(QStringLiteral("deScad"));
+        deScad->setMinimumSize(QSize(100, 0));
+        deScad->setMaximumSize(QSize(100, 16777215));
+        deScad->setCalendarPopup(true);
+
+        gridLayout->addWidget(deScad, 1, 2, 1, 1);
+
         cbScad = new QCheckBox(HModifyLot);
         cbScad->setObjectName(QStringLiteral("cbScad"));
+        cbScad->setMinimumSize(QSize(100, 0));
+        cbScad->setMaximumSize(QSize(100, 16777215));
 
         gridLayout->addWidget(cbScad, 1, 1, 1, 1);
 
-        cbAttivo = new QCheckBox(HModifyLot);
-        cbAttivo->setObjectName(QStringLiteral("cbAttivo"));
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addWidget(cbAttivo, 0, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_6, 1, 4, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -208,6 +266,7 @@ public:
 
         cbAnag = new QComboBox(HModifyLot);
         cbAnag->setObjectName(QStringLiteral("cbAnag"));
+        cbAnag->setMinimumSize(QSize(400, 0));
         cbAnag->setEditable(true);
         cbAnag->setInsertPolicy(QComboBox::NoInsert);
         cbAnag->setMinimumContentsLength(30);
@@ -233,6 +292,18 @@ public:
 
         horizontalLayout_4->addWidget(leLotFornitore);
 
+        label_10 = new QLabel(HModifyLot);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        horizontalLayout_4->addWidget(label_10);
+
+        leBolla = new QLineEdit(HModifyLot);
+        leBolla->setObjectName(QStringLiteral("leBolla"));
+        leBolla->setMinimumSize(QSize(200, 0));
+        leBolla->setMaximumSize(QSize(200, 16777215));
+
+        horizontalLayout_4->addWidget(leBolla);
+
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_4->addItem(horizontalSpacer_2);
@@ -240,53 +311,10 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        label_8 = new QLabel(HModifyLot);
-        label_8->setObjectName(QStringLiteral("label_8"));
-
-        horizontalLayout_5->addWidget(label_8);
-
-        leEan = new QLineEdit(HModifyLot);
-        leEan->setObjectName(QStringLiteral("leEan"));
-
-        horizontalLayout_5->addWidget(leEan);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_3);
-
-
-        verticalLayout->addLayout(horizontalLayout_5);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        label_9 = new QLabel(HModifyLot);
-        label_9->setObjectName(QStringLiteral("label_9"));
-
-        horizontalLayout_6->addWidget(label_9);
-
-        cbtipo = new QComboBox(HModifyLot);
-        cbtipo->setObjectName(QStringLiteral("cbtipo"));
-        cbtipo->setEditable(true);
-        cbtipo->setInsertPolicy(QComboBox::NoInsert);
-
-        horizontalLayout_6->addWidget(cbtipo);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_6->addItem(horizontalSpacer_4);
-
-
-        verticalLayout->addLayout(horizontalLayout_6);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-
-        verticalLayout->addLayout(horizontalLayout_7);
-
         horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(0);
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_8->setSizeConstraint(QLayout::SetMinimumSize);
         label_11 = new QLabel(HModifyLot);
         label_11->setObjectName(QStringLiteral("label_11"));
 
@@ -294,6 +322,12 @@ public:
 
         ptNote = new QPlainTextEdit(HModifyLot);
         ptNote->setObjectName(QStringLiteral("ptNote"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(ptNote->sizePolicy().hasHeightForWidth());
+        ptNote->setSizePolicy(sizePolicy1);
+        ptNote->setMaximumSize(QSize(16777215, 100));
 
         horizontalLayout_8->addWidget(ptNote);
 
@@ -342,24 +376,28 @@ public:
 
         retranslateUi(HModifyLot);
 
+        cbUm->setCurrentIndex(-1);
+
+
         QMetaObject::connectSlotsByName(HModifyLot);
     } // setupUi
 
     void retranslateUi(QWidget *HModifyLot)
     {
         HModifyLot->setWindowTitle(QApplication::translate("HModifyLot", "Informazioni su lotto", 0));
-        label->setText(QApplication::translate("HModifyLot", "Lotto:", 0));
-        label_12->setText(QApplication::translate("HModifyLot", "Cod.Prodotto", 0));
+        label->setText(QApplication::translate("HModifyLot", "Lotto Interno:", 0));
+        label_12->setText(QApplication::translate("HModifyLot", "Cod.Prodotto:", 0));
         label_3->setText(QApplication::translate("HModifyLot", "Prodotto:", 0));
         label_5->setText(QApplication::translate("HModifyLot", "Giacenza:", 0));
+        label_8->setText(QApplication::translate("HModifyLot", "Lotto:", 0));
+        cbAttivo->setText(QApplication::translate("HModifyLot", "Attivo", 0));
+        label_9->setText(QApplication::translate("HModifyLot", "Tipo:", 0));
         label_2->setText(QApplication::translate("HModifyLot", "Unit\303\240 di misura:", 0));
         label_4->setText(QApplication::translate("HModifyLot", "Scadenza:", 0));
         cbScad->setText(QApplication::translate("HModifyLot", "No scadenza", 0));
-        cbAttivo->setText(QApplication::translate("HModifyLot", "Attivo", 0));
         label_6->setText(QApplication::translate("HModifyLot", "Cliente/fornitore:", 0));
         label_7->setText(QApplication::translate("HModifyLot", "lotto Fornitore:", 0));
-        label_8->setText(QApplication::translate("HModifyLot", "lotto  di uscita:", 0));
-        label_9->setText(QApplication::translate("HModifyLot", "Tipo:", 0));
+        label_10->setText(QApplication::translate("HModifyLot", "Bolla", 0));
         label_11->setText(QApplication::translate("HModifyLot", "Note:", 0));
         pushButton->setText(QApplication::translate("HModifyLot", "Salva", 0));
         pbComposizione->setText(QApplication::translate("HModifyLot", "Dettagli", 0));

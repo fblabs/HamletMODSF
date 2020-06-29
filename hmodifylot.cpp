@@ -85,14 +85,15 @@ HModifyLot::HModifyLot(int pidlotto, HUser *p_user, QSqlDatabase pdb, QWidget *p
 
     //setto la form ai valori correnti
 
-    QVariant cod=q.value(6);
-    QVariant prod=q.value(7);
-    QVariant anag=q.value(11);
-    QVariant ixtipo=q.value(13);
-    QVariant ixum=q.value(9);
-    QVariant scadz= q.value(10);
-    QVariant attv=q.value(14);
-    QVariant lotint=q.value(4);
+    QVariant cod=q.value(7);
+    QVariant prod=q.value(8);
+    QVariant anag=q.value(12);
+    QVariant ixtipo=q.value(3);
+    QVariant ixum=q.value(10);
+    QVariant scadz= q.value(11);
+    QVariant attv=q.value(15);
+    QVariant lotint=q.value(5);
+    QVariant bolla=q.value(14);
 
     if (scadz.isNull())
     {
@@ -109,13 +110,14 @@ HModifyLot::HModifyLot(int pidlotto, HUser *p_user, QSqlDatabase pdb, QWidget *p
     ui->leLot->setText(lotint.toString());
     qDebug()<<q.value(5).toString();
 
-    ui->leGiac->setText(QString::number(q.value(8).toDouble(),'n',3));
-    ui->deScad->setDate(q.value(10).toDate());
-    ui->leLotFornitore->setText(q.value(12).toString());
-    ui->leEan->setText(q.value(5).toString());
-    ui->ptNote->setPlainText(q.value(15).toString());
+    ui->leGiac->setText(QString::number(q.value(9).toDouble(),'n',3));
+    ui->deScad->setDate(q.value(11).toDate());
+    ui->leLotFornitore->setText(q.value(13).toString());
+    ui->leEan->setText(q.value(6).toString());
+    ui->ptNote->setPlainText(q.value(16).toString());
     ui->leCodice->setText(cod.toString());
     ui->leProd->setText(prod.toString());
+    ui->leBolla->setText(bolla.toString());
 
     sql= "select ragione_sociale from anagrafica where ID=:id";
     q.prepare(sql);
@@ -173,7 +175,7 @@ void HModifyLot::updateLot()
     QString sql;
     bool b=false;
 
-    sql="UPDATE lotdef set um=:um, scadenza=:scad, anagrafica=:anag, lot_fornitore=:lotf, ean=:ean,tipo=:tipo,attivo=:att,note=:note WHERE id=:lotid";
+    sql="UPDATE lotdef set um=:um, scadenza=:scad, anagrafica=:anag, lot_fornitore=:lotf,bolla=:ddt, ean=:ean,tipo=:tipo,attivo=:att,note=:note WHERE id=:lotid";
     q.prepare(sql);
 
     q.bindValue(":um",ui->cbUm->model()->index(ui->cbUm->currentIndex(),0).data(0));
@@ -203,6 +205,7 @@ void HModifyLot::updateLot()
 
     q.bindValue(":anag",ui->cbAnag->model()->index(ui->cbAnag->currentIndex(),0).data(0));
     q.bindValue(":lotf",QVariant(ui->leLotFornitore->text()));
+    q.bindValue(":ddt",QVariant(ui->leBolla->text()));
     q.bindValue(":ean",QVariant(ui->leEan->text()));
     q.bindValue(":tipo",ui->cbtipo->model()->index(ui->cbtipo->currentIndex(),0).data(0));
     q.bindValue(":note",QVariant(ui->ptNote->toPlainText()));
@@ -253,7 +256,7 @@ void HModifyLot::on_pbComposizione_clicked()
 
 void HModifyLot::on_pbClose_clicked()
 {
-   if(QMessageBox::question(this,QApplication::applicationName(),"Chiudere? ATTENZIONE LE MODIFICHE NON SALVATE verranno perse",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+   if(QMessageBox::question(this,QApplication::applicationName(),"Chiudere? ATTENZIONE le modifiche non salvate verranno perse",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
     {
 
         close();

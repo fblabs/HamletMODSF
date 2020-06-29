@@ -32,6 +32,7 @@ public:
     QRadioButton *rbProdotti;
     QRadioButton *rbImpasti;
     QRadioButton *rbRipieni;
+    QRadioButton *rbConfezionamenti;
     QSpacerItem *verticalSpacer_2;
     QLineEdit *leNomeRicetta;
     QSpacerItem *verticalSpacer;
@@ -63,6 +64,11 @@ public:
         rbRipieni->setObjectName(QStringLiteral("rbRipieni"));
 
         horizontalLayout->addWidget(rbRipieni);
+
+        rbConfezionamenti = new QRadioButton(HNewRecipe);
+        rbConfezionamenti->setObjectName(QStringLiteral("rbConfezionamenti"));
+
+        horizontalLayout->addWidget(rbConfezionamenti);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -107,6 +113,7 @@ public:
         rbProdotti->setText(QApplication::translate("HNewRecipe", "Prodotto", 0));
         rbImpasti->setText(QApplication::translate("HNewRecipe", "Impasto", 0));
         rbRipieni->setText(QApplication::translate("HNewRecipe", "Ripieno", 0));
+        rbConfezionamenti->setText(QApplication::translate("HNewRecipe", "Confezionamento", 0));
         pbOK->setText(QApplication::translate("HNewRecipe", "Ok", 0));
         pbAbort->setText(QApplication::translate("HNewRecipe", "Annulla", 0));
     } // retranslateUi

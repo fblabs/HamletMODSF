@@ -54,12 +54,12 @@ HModRicette::HModRicette(QSqlDatabase pdb, QWidget *parent) :
 
     tric=new QSqlTableModel(0,db);
     tric->setTable("prodotti");
-    tric->setFilter("tipo=2 or tipo=3 or tipo=4");
+    tric->setFilter("tipo >1");
     tric->setSort(2,Qt::AscendingOrder);
     tric->select();
 
-    ui->cbRicette->setModel(qmric);
-    ui->cbRicette->setModelColumn(1);
+    ui->cbRicette->setModel(tric);
+    ui->cbRicette->setModelColumn(2);
 
 
     ui->cbRicette->setCurrentIndex(0);

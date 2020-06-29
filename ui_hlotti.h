@@ -192,12 +192,17 @@ public:
         twLots = new QTableView(HLotti);
         twLots->setObjectName(QStringLiteral("twLots"));
         twLots->setEnabled(true);
+        twLots->setAutoFillBackground(true);
         twLots->setFrameShape(QFrame::StyledPanel);
         twLots->setEditTriggers(QAbstractItemView::NoEditTriggers);
         twLots->setAlternatingRowColors(true);
         twLots->setSelectionMode(QAbstractItemView::SingleSelection);
         twLots->setSelectionBehavior(QAbstractItemView::SelectRows);
         twLots->setSortingEnabled(true);
+        twLots->horizontalHeader()->setCascadingSectionResizes(true);
+        twLots->horizontalHeader()->setHighlightSections(true);
+        twLots->horizontalHeader()->setMinimumSectionSize(10);
+        twLots->horizontalHeader()->setStretchLastSection(true);
         twLots->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(twLots);
