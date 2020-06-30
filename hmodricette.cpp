@@ -52,14 +52,14 @@ HModRicette::HModRicette(QSqlDatabase pdb, QWidget *parent) :
 
     getRicette();
 
-    tric=new QSqlTableModel(0,db);
+  /*  tric=new QSqlTableModel(0,db);
     tric->setTable("prodotti");
-    tric->setFilter("tipo >1");
+    tric->setFilter("tipo in (2,3,4)");
     tric->setSort(2,Qt::AscendingOrder);
     tric->select();
 
     ui->cbRicette->setModel(tric);
-    ui->cbRicette->setModelColumn(2);
+    ui->cbRicette->setModelColumn(2);*/
 
 
     ui->cbRicette->setCurrentIndex(0);
@@ -140,6 +140,8 @@ void HModRicette::getRicette()
     QCompleter *comp=new QCompleter();
     qmric=new  QSqlQueryModel();
     QSqlQuery q(db);
+    //q.exec("select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette where  prodotti.ID=ricette.ID_prodotto and prodotti.tipo IN (2,3,4) order by prodotti.descrizione ASC");
+   // q.exec("select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette where  prodotti.ID=ricette.ID_prodotto and prodotti.tipo IN (2,3,4) order by prodotti.descrizione ASC");
     q.exec("SELECT ricette.ID,prodotti.descrizione from prodotti,ricette WHERE prodotti.ID=ricette.ID_prodotto ORDER BY prodotti.descrizione ASC");
     qmric->setQuery(q);
 
@@ -150,7 +152,8 @@ void HModRicette::getRicette()
     comp->setCompletionMode(QCompleter::PopupCompletion);
     comp->setCaseSensitivity(Qt::CaseInsensitive);
     ui->cbRicette->setCompleter(comp);
-   // // qDebug()<<q.lastQuery()<<q.lastError().text();
+    qDebug()<<"ricetta"<<q.value(0).toString()<<q.value(1).toString();
+
 
 }
 
@@ -347,11 +350,15 @@ void HModRicette::loadRicetta()
 {
 
     int idricetta=ui->cbRicette->model()->index(ui->cbRicette->currentIndex(),0).data(0).toInt();
+    qDebug()<<"IDricetta"<<idricetta;
     QSqlQuery q(db);
-    QString sql = "SELECT righe_ricette.ID,righe_ricette.ID_Ricetta,righe_ricette.ID_prodotto,prodotti.descrizione AS 'Ingrediente',righe_ricette.quantita AS 'Quantità',righe_ricette.show_prod AS 'Mostra in produzione',prodotti.allergenico  FROM righe_ricette,prodotti WHERE prodotti.ID=righe_ricette.ID_prodotto and righe_ricette.ID_ricetta=:idricetta ORDER BY righe_ricette.quantita DESC";
+
+
+    QString sql = "SELECT righe_ricette.ID,righe_ricette.ID_Ricetta,righe_ricette.ID_prodotto,prodotti.descrizione AS 'Ingrediente',righe_ricette.quantita AS 'Quantità',righe_ricette.show_prod AS 'Mostra in produzione',prodotti.allergenico  FROM righe_ricette,prodotti WHERE prodotti.ID=righe_ricette.ID_prodotto and righe_ricette.ID_ricetta=:idricetta order by righe_ricette.quantita desc";
     q.prepare(sql);
     q.bindValue(":idricetta",QVariant(idricetta));
     q.exec();
+
 
     writeRed=new QList<int>();
 

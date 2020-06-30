@@ -33,6 +33,7 @@ HPackView::HPackView(QSqlDatabase pdb=QSqlDatabase(),HUser *puser=0,QWidget *par
     ui->tvPacks->setModel(mod);
     ui->tvPacks->setColumnHidden(0,true);
     ui->tvPacks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tvPacks->selectRow(0);
 
 
 }
@@ -70,7 +71,7 @@ void HPackView::modifySelected(int pidlotto)
 {
 
    HModifyLot *f=new HModifyLot(pidlotto,user,db);
-   connect(f,SIGNAL(updatedLot()),this,SLOT(updateTableView()));
+   connect(f,SIGNAL(updatedLot()),this,SLOT(refreshModel()));
    f->show();
 
 }
@@ -108,4 +109,9 @@ void HPackView::on_pbInfo_clicked()
 
     modifySelected(idlotto);
     mod->select();
+}
+
+void HPackView::refreshModel()
+{
+   mod->select();
 }
