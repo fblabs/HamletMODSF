@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_HLotti_t {
     QByteArrayData data[38];
-    char stringdata0[636];
+    char stringdata0[634];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,46 +30,46 @@ struct qt_meta_stringdata_HLotti_t {
 static const qt_meta_stringdata_HLotti_t qt_meta_stringdata_HLotti = {
     {
 QT_MOC_LITERAL(0, 0, 6), // "HLotti"
-QT_MOC_LITERAL(1, 7, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(2, 29, 0), // ""
-QT_MOC_LITERAL(3, 30, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(4, 54, 9), // "resetData"
-QT_MOC_LITERAL(5, 64, 23), // "on_pushButton_4_clicked"
-QT_MOC_LITERAL(6, 88, 9), // "setFilter"
-QT_MOC_LITERAL(7, 98, 15), // "showContextMenu"
-QT_MOC_LITERAL(8, 114, 3), // "pos"
-QT_MOC_LITERAL(9, 118, 9), // "copyField"
-QT_MOC_LITERAL(10, 128, 7), // "editLot"
-QT_MOC_LITERAL(11, 136, 5), // "print"
-QT_MOC_LITERAL(12, 142, 15), // "updateTableView"
-QT_MOC_LITERAL(13, 158, 23), // "on_pushButton_6_clicked"
-QT_MOC_LITERAL(14, 182, 23), // "on_pushButton_7_clicked"
-QT_MOC_LITERAL(15, 206, 10), // "getDetails"
-QT_MOC_LITERAL(16, 217, 14), // "modifySelected"
-QT_MOC_LITERAL(17, 232, 8), // "pidlotto"
-QT_MOC_LITERAL(18, 241, 25), // "on_leLottoRaw_textChanged"
-QT_MOC_LITERAL(19, 267, 4), // "arg1"
-QT_MOC_LITERAL(20, 272, 25), // "on_chTipoProdotti_toggled"
-QT_MOC_LITERAL(21, 298, 7), // "checked"
-QT_MOC_LITERAL(22, 306, 33), // "on_cbTipoProd_currentIndexCha..."
-QT_MOC_LITERAL(23, 340, 5), // "index"
-QT_MOC_LITERAL(24, 346, 15), // "on_chbT_toggled"
-QT_MOC_LITERAL(25, 362, 32), // "on_cbTipiLot_currentIndexChanged"
-QT_MOC_LITERAL(26, 395, 15), // "on_chbP_toggled"
-QT_MOC_LITERAL(27, 411, 33), // "on_cbProdotti_currentIndexCha..."
-QT_MOC_LITERAL(28, 445, 23), // "on_twLots_doubleClicked"
-QT_MOC_LITERAL(29, 469, 21), // "on_pbScadenze_clicked"
-QT_MOC_LITERAL(30, 491, 22), // "on_datadal_dateChanged"
-QT_MOC_LITERAL(31, 514, 4), // "date"
-QT_MOC_LITERAL(32, 519, 21), // "on_dataal_dateChanged"
-QT_MOC_LITERAL(33, 541, 11), // "getDataLots"
-QT_MOC_LITERAL(34, 553, 17), // "on_twLots_clicked"
-QT_MOC_LITERAL(35, 571, 16), // "on_chBio_toggled"
-QT_MOC_LITERAL(36, 588, 19), // "on_pbLotMod_clicked"
-QT_MOC_LITERAL(37, 608, 27) // "on_leLotInterno_textChanged"
+QT_MOC_LITERAL(1, 7, 19), // "on_pbUnload_clicked"
+QT_MOC_LITERAL(2, 27, 0), // ""
+QT_MOC_LITERAL(3, 28, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(4, 52, 9), // "resetData"
+QT_MOC_LITERAL(5, 62, 23), // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(6, 86, 9), // "setFilter"
+QT_MOC_LITERAL(7, 96, 15), // "showContextMenu"
+QT_MOC_LITERAL(8, 112, 3), // "pos"
+QT_MOC_LITERAL(9, 116, 9), // "copyField"
+QT_MOC_LITERAL(10, 126, 7), // "editLot"
+QT_MOC_LITERAL(11, 134, 5), // "print"
+QT_MOC_LITERAL(12, 140, 15), // "updateTableView"
+QT_MOC_LITERAL(13, 156, 23), // "on_pushButton_6_clicked"
+QT_MOC_LITERAL(14, 180, 23), // "on_pushButton_7_clicked"
+QT_MOC_LITERAL(15, 204, 10), // "getDetails"
+QT_MOC_LITERAL(16, 215, 14), // "modifySelected"
+QT_MOC_LITERAL(17, 230, 8), // "pidlotto"
+QT_MOC_LITERAL(18, 239, 25), // "on_leLottoRaw_textChanged"
+QT_MOC_LITERAL(19, 265, 4), // "arg1"
+QT_MOC_LITERAL(20, 270, 25), // "on_chTipoProdotti_toggled"
+QT_MOC_LITERAL(21, 296, 7), // "checked"
+QT_MOC_LITERAL(22, 304, 33), // "on_cbTipoProd_currentIndexCha..."
+QT_MOC_LITERAL(23, 338, 5), // "index"
+QT_MOC_LITERAL(24, 344, 15), // "on_chbT_toggled"
+QT_MOC_LITERAL(25, 360, 32), // "on_cbTipiLot_currentIndexChanged"
+QT_MOC_LITERAL(26, 393, 15), // "on_chbP_toggled"
+QT_MOC_LITERAL(27, 409, 33), // "on_cbProdotti_currentIndexCha..."
+QT_MOC_LITERAL(28, 443, 23), // "on_twLots_doubleClicked"
+QT_MOC_LITERAL(29, 467, 21), // "on_pbScadenze_clicked"
+QT_MOC_LITERAL(30, 489, 22), // "on_datadal_dateChanged"
+QT_MOC_LITERAL(31, 512, 4), // "date"
+QT_MOC_LITERAL(32, 517, 21), // "on_dataal_dateChanged"
+QT_MOC_LITERAL(33, 539, 11), // "getDataLots"
+QT_MOC_LITERAL(34, 551, 17), // "on_twLots_clicked"
+QT_MOC_LITERAL(35, 569, 16), // "on_chBio_toggled"
+QT_MOC_LITERAL(36, 586, 19), // "on_pbLotMod_clicked"
+QT_MOC_LITERAL(37, 606, 27) // "on_leLotInterno_textChanged"
 
     },
-    "HLotti\0on_pushButton_clicked\0\0"
+    "HLotti\0on_pbUnload_clicked\0\0"
     "on_pushButton_3_clicked\0resetData\0"
     "on_pushButton_4_clicked\0setFilter\0"
     "showContextMenu\0pos\0copyField\0editLot\0"
@@ -178,7 +178,7 @@ void HLotti::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         HLotti *_t = static_cast<HLotti *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_pushButton_clicked(); break;
+        case 0: _t->on_pbUnload_clicked(); break;
         case 1: _t->on_pushButton_3_clicked(); break;
         case 2: _t->resetData(); break;
         case 3: _t->on_pushButton_4_clicked(); break;

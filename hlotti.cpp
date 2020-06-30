@@ -30,6 +30,7 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
 {
 
     ui->setupUi(this);
+    ui->pbUnload->setVisible(false);
 
     user=puser;
     db=pdb;
@@ -83,7 +84,7 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
    ui->twLots->setColumnHidden(1,true);
    ui->twLots->setColumnHidden(2,true);
    ui->twLots->setColumnHidden(3,true);
-   ui->twLots->setCurrentIndex(ui->twLots->model()->index(0,0));
+
    ui->pushButton_7->setEnabled(false);
 
 
@@ -108,6 +109,7 @@ HLotti::HLotti(QSqlDatabase pdb, HUser *puser, QWidget *parent) :
     dateset=true;
 
     setFilter();
+    ui->twLots->selectRow(0);
     QApplication::setOverrideCursor(Qt::ArrowCursor);
 
 }
@@ -206,7 +208,7 @@ void HLotti::copyField()
     clipboard->setText(field);
 }
 
-void HLotti::on_pushButton_clicked()
+void HLotti::on_pbUnload_clicked()
 {
 
    HPackagesUnload *f=new HPackagesUnload(user,db);

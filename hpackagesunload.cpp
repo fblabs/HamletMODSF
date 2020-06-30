@@ -20,8 +20,9 @@ HPackagesUnload::HPackagesUnload(HUser *puser, QSqlDatabase pdb, QWidget *parent
     ui->setupUi(this);
     user=puser;
     db=pdb;
-    baseFilter="attivo > 0 and year(data)>year(data)-3 and tipo=4";
-    getClients();
+    baseFilter="attivo > 0 and year(data)>year(data)-1 and tipo=2";
+    getProducts();
+
 
 }
 
@@ -30,44 +31,13 @@ HPackagesUnload::~HPackagesUnload()
     delete ui;
 }
 
-void HPackagesUnload::getClients()
-{
-    connect(ui->cbClienti,SIGNAL(currentIndexChanged(int)),this,SLOT(getProducts()));
-    QSqlTableModel *modClienti=new QSqlTableModel(0,db);
-    modClienti->setTable("anagrafica");
-    modClienti->setFilter("cliente=1");
-    modClienti->setSort(1,Qt::AscendingOrder);
-    modClienti->select();
-
-    QCompleter *cmpCl=new QCompleter(modClienti);
-    cmpCl->setCompletionColumn(1);
-    cmpCl->setCompletionMode(QCompleter::PopupCompletion);
-    cmpCl->setCaseSensitivity(Qt::CaseInsensitive);
-
-
-    ui->cbClienti->setModel(modClienti);
-    ui->cbClienti->setModelColumn(1);
-
-    ui->cbClienti->setCompleter(cmpCl);
-  //  ui->cbClienti->setCurrentIndex(1);
-
-
- //   connect(ui->cbClienti,SIGNAL(currentIndexChanged(int)),this,SLOT(getProducts()));
-
-}
-
 void HPackagesUnload::getProducts()
 {
     modProdotti=new QSqlQueryModel();
-    QVariant idc;
-    QSqlQuery q(db);
+   QSqlQuery q(db);
 
-    idc=ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0);
-
-    QString sql="SELECT ID,descrizione FROM prodotti where tipo=2 and ID in(SELECT ID_prodotto from ricette,associazioni where ricette.ID = associazioni.ID_ricetta and associazioni.ID_cliente=:idc) order by descrizione asc";
+    QString sql="SELECT ID,descrizione FROM prodotti where tipo=2 order by descrizione asc";
     q.prepare(sql);
-    q.bindValue(0,idc);
-
     q.exec();
     modProdotti->setQuery(q);
 

@@ -28,7 +28,6 @@ private:
     QSqlQueryModel *modProdotti;
     QSqlTableModel *mlots;
 private slots:
-    void getClients();
     void getProducts();
     void loadPackages();
     void on_pushButton_2_clicked();

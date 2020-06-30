@@ -30,7 +30,7 @@ public:
 
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pbUnload_clicked();
 
     void on_pushButton_3_clicked();
 

@@ -25,6 +25,7 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
 
 
+
     basefilter="lotti_view.scadenza  >'" +QDate::currentDate().toString("yyyy-MM-dd")+"' or lotti_view.scadenza is null";
 
 
@@ -76,17 +77,18 @@ HPackages::HPackages(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
     ui->tvLots->setSortingEnabled(true);
 
-
+//4-5-7-8-9-10-11-12
 
     ui->tvLots->setColumnHidden(0,true);
     ui->tvLots->setColumnHidden(1,true);
     ui->tvLots->setColumnHidden(2,true);
-    ui->tvLots->setColumnHidden(5,true);
-    ui->tvLots->setColumnHidden(9,true);
-    ui->tvLots->setColumnHidden(11,true);
+    ui->tvLots->setColumnHidden(3,true);
+    ui->tvLots->setColumnHidden(6,true);
     ui->tvLots->setColumnHidden(12,true);
     ui->tvLots->setColumnHidden(13,true);
     ui->tvLots->setColumnHidden(14,true);
+    ui->tvLots->setColumnHidden(15,true);
+    ui->tvLots->setColumnHidden(16,true);
     ui->tvLots->setEditTriggers(QTableView::NoEditTriggers);
     ui->tvLots->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
 
@@ -125,7 +127,7 @@ void HPackages::enableUI(bool e)
 
 void HPackages::setLotText()
 {
-    QString lot=ui->tvLots->model()->index(ui->tvLots->selectionModel()->currentIndex().row(),4).data(0).toString();
+    QString lot=ui->tvLots->model()->index(ui->tvLots->selectionModel()->currentIndex().row(),5).data(0).toString();
     ui->leComponente->setText(lot);
 }
 
@@ -750,7 +752,7 @@ void HPackages::on_rbProdottiFiniti_toggled(bool checked)
 
     if (checked)
     {
-        QString flt="("+basefilter + ") and lotti_view.tipolot=3 and lotti_view.`Tipo prodotto`=2";
+        QString flt="("+basefilter + ") and lotti_view.tipolot=3 and lotti_view.tipoprodotto=2";
         tmLots->setFilter(flt);
         ui->leSearch->setText("");
 
@@ -769,7 +771,7 @@ void HPackages::on_rbConfezionamenti_toggled(bool checked)
 {
 
     if (checked)
-    {   QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.`Tipo prodotto`=5";
+    {   QString flt="("+basefilter + ") and lotti_view.tipolot=1 and lotti_view.tipoprodotto=5";
         tmLots->setFilter(flt);
         ui->leSearch->setText("");
     }
@@ -799,7 +801,7 @@ void HPackages::on_leSearchCode_returnPressed()
         }
         else if(ui->rbConfezionamenti->isChecked())
         {
-            tipo=" and lotti_view.`Tipo prodotto`=5";
+            tipo=" and lotti_view.tipoprodotto=5";
             filter.append(tipo);
         }
 
@@ -841,7 +843,7 @@ void HPackages::on_leSearch_returnPressed()
             }
             else if(ui->rbConfezionamenti->isChecked())
             {
-                tipo=" and lotti_view.`Tipo prodotto`= 5";
+                tipo=" and lotti_view.tipoprodotto= 5";
                 filter.append(tipo);
             }
         }

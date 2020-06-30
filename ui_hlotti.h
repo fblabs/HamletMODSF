@@ -58,7 +58,7 @@ public:
     QPushButton *pushButton_7;
     QPushButton *pbLotMod;
     QPushButton *pushButton_4;
-    QPushButton *pushButton;
+    QPushButton *pbUnload;
     QPushButton *pbScadenze;
     QPushButton *pushButton_6;
     QPushButton *pushButton_3;
@@ -239,14 +239,14 @@ public:
 
         horizontalLayout->addWidget(pushButton_4);
 
-        pushButton = new QPushButton(HLotti);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pbUnload = new QPushButton(HLotti);
+        pbUnload->setObjectName(QStringLiteral("pbUnload"));
         QIcon icon4;
         icon4.addFile(QStringLiteral(":/Resources/App-ark-2-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon4);
-        pushButton->setIconSize(QSize(32, 32));
+        pbUnload->setIcon(icon4);
+        pbUnload->setIconSize(QSize(32, 32));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(pbUnload);
 
         pbScadenze = new QPushButton(HLotti);
         pbScadenze->setObjectName(QStringLiteral("pbScadenze"));
@@ -301,7 +301,7 @@ public:
         pushButton_7->setText(QApplication::translate("HLotti", "Informazioni su lotto", 0));
         pbLotMod->setText(QApplication::translate("HLotti", "Modifica Composizione Lotto", 0));
         pushButton_4->setText(QApplication::translate("HLotti", "Nuova operazione", 0));
-        pushButton->setText(QApplication::translate("HLotti", "Scarico Packages", 0));
+        pbUnload->setText(QApplication::translate("HLotti", "Scarico Packages", 0));
         pbScadenze->setText(QApplication::translate("HLotti", "Scadenze", 0));
         pushButton_6->setText(QApplication::translate("HLotti", "Stampa", 0));
         pushButton_3->setText(QApplication::translate("HLotti", "Chiudi", 0));

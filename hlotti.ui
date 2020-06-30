@@ -305,7 +305,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="pbUnload">
          <property name="text">
           <string>Scarico Packages</string>
          </property>

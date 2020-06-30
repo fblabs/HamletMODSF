@@ -30,9 +30,6 @@ class Ui_HPackagesUnload
 public:
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
-    QFormLayout *formLayout;
-    QLabel *label;
-    QComboBox *cbClienti;
     QFormLayout *formLayout_2;
     QLabel *label_2;
     QComboBox *cbProdotti;
@@ -59,25 +56,6 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
-        label = new QLabel(HPackagesUnload);
-        label->setObjectName(QStringLiteral("label"));
-
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
-
-        cbClienti = new QComboBox(HPackagesUnload);
-        cbClienti->setObjectName(QStringLiteral("cbClienti"));
-        cbClienti->setEnabled(true);
-        cbClienti->setMouseTracking(false);
-        cbClienti->setEditable(true);
-        cbClienti->setInsertPolicy(QComboBox::NoInsert);
-
-        formLayout->setWidget(0, QFormLayout::FieldRole, cbClienti);
-
-
-        verticalLayout_2->addLayout(formLayout);
-
         formLayout_2 = new QFormLayout();
         formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
         label_2 = new QLabel(HPackagesUnload);
@@ -167,7 +145,6 @@ public:
     void retranslateUi(QWidget *HPackagesUnload)
     {
         HPackagesUnload->setWindowTitle(QApplication::translate("HPackagesUnload", "Scarico Packages", 0));
-        label->setText(QApplication::translate("HPackagesUnload", "Cliente:", 0));
         label_2->setText(QApplication::translate("HPackagesUnload", "Prodotto:", 0));
         label_3->setText(QApplication::translate("HPackagesUnload", "Packages:", 0));
         label_4->setText(QApplication::translate("HPackagesUnload", "Quantit\303\240:(pz)", 0));
