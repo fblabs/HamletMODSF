@@ -22,6 +22,7 @@ private:
      QString username;
 
 
+
 public slots:
     void setUserName(QString uname);
     void setRole (int role);

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QtSql/QSqlDatabase>
-//// #include <QDebug>
+#include <QDebug>
 #include <QSqlError>
 #include "hprodotti.h"
 #include "hutenti.h"

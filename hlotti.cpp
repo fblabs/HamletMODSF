@@ -557,8 +557,11 @@ void HLotti::on_chBio_toggled(bool checked)
 void HLotti::on_pbLotMod_clicked()
 {
     int idlotto=ui->twLots->model()->index(ui->twLots->currentIndex().row(),0).data(0).toInt();
+    QString lotto=ui->twLots->model()->index(ui->twLots->currentIndex().row(),5).data(0).toString();
+    QString prodotto=ui->twLots->model()->index(ui->twLots->currentIndex().row(),8).data(0).toString();
+    QString desc=lotto + " - " + prodotto;
 
-    HComposizioneLotto *f=new HComposizioneLotto(user,db,idlotto,ui->twLots->model()->index(ui->twLots->selectionModel()->currentIndex().row(),4).data(0).toString() + " - " + ui->twLots->model()->index(ui->twLots->selectionModel()->currentIndex().row(),7).data(0).toString());
+    HComposizioneLotto *f=new HComposizioneLotto(user,db,idlotto,desc);
 
     f->show();
 }

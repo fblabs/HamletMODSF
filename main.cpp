@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#define QT_NO_DEBUG_OUTPUT
 
 int main(int argc, char *argv[])
 {

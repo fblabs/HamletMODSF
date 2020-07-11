@@ -7,12 +7,23 @@
 HUser::HUser(QObject *parent) :
     QObject(parent)
 {
+    QSqlDatabase db;
+    int role;
+    int id;
+    bool active;
+    bool update;
+    bool updateana;
+    QString nome;
+    QString username;
+
     role=-1;
     username="";
     nome="";
     id=-1;
     update=false;
     updateana=false;
+    active=false;
+    this->setParent(parent);
 }
 
 

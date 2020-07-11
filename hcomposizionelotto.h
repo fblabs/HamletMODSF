@@ -31,7 +31,7 @@ private:
     QSqlQueryModel *mod;
     HComposizioneLotto *parf;
     QShortcut *det;
-    HUser* user;
+    HUser *user;
 
 private slots:
     void getLotComposition();
@@ -50,6 +50,9 @@ private slots:
     void on_pbAdd_clicked();
     void refresh();
     void on_pbPrint_clicked();
+signals:
+    wclose();
+
 };
 
 #endif // HCOMPOSIZIONELOTTO_H

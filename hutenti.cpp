@@ -311,7 +311,7 @@ void HUtenti::on_rbTrasports_toggled(bool checked)
 
 void HUtenti::on_cbVisible_2_toggled(bool checked)
 {
-
+    Q_UNUSED(checked);
     setFilter();
 
 }

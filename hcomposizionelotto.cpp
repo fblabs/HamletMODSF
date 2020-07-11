@@ -75,13 +75,24 @@ void HComposizioneLotto::getDetails()
         int lotid=mod->index(ui->tableView->selectionModel()->currentIndex().row(),0).data(0).toInt();
 
 
+        //QString lotto=ui->tableView->model()->index(ui->twLots->currentIndex().row(),5).data(0).toString();
+        //QString prodotto=ui->tableView->model()->index(ui->twLots->currentIndex().row(),8).data(0).toString();
+        //QString desc=lotto + " - " + prodotto;
+
+        //QString lotto,prodotto,desc=QString();
+
+
+
+
+
+
         QModelIndex ixlot;
         QModelIndex ixpro;
 
         if (tipo != 1)
         {
-         ixlot=mod->index(ui->tableView->selectionModel()->currentIndex().row(),2);
-         ixpro=mod->index(ui->tableView->selectionModel()->currentIndex().row(),3);
+         ixlot=mod->index(ui->tableView->selectionModel()->currentIndex().row(),3);
+         ixpro=mod->index(ui->tableView->selectionModel()->currentIndex().row(),4);
         }
         else
         {
@@ -91,14 +102,15 @@ void HComposizioneLotto::getDetails()
         }
 
 
-        QString desc=ixlot.data(0).toString()+" - "+ixpro.data(0).toString();
+        desc=ixlot.data(0).toString()+" - "+ixpro.data(0).toString();
 
 
-        parf=new HComposizioneLotto(0,db,lotid,desc);
+       parf=new HComposizioneLotto(user,db,lotid,desc);
 
       //  parf=f;
 
         parf->show();
+
 
 }
 
@@ -122,6 +134,7 @@ void HComposizioneLotto::getLotComposition()
 
     mod=new QSqlQueryModel();
     mod->setQuery(q);
+    qDebug()<<q.lastError().text();
 
    if(mod->rowCount()>0)
    {

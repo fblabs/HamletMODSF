@@ -201,6 +201,7 @@ void HAddComponent::updateComposizioneLot(int idoperazione)
     }
     else
     {
+        q.lastError().text();
         db.rollback();
         QMessageBox::warning(this,QApplication::applicationName(),"Errore aggiornando i dati\n"+q.lastError().text(),QMessageBox::Ok);
 

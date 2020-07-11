@@ -246,6 +246,7 @@ void HModifyLot::on_pbComposizione_clicked()
 {
 
 
+
     HComposizioneLotto *f=new HComposizioneLotto(user,db,lot,ui->leLot->text() + " - " + ui->leProd->text());
 
     f->show();
