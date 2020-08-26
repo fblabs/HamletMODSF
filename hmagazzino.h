@@ -43,6 +43,10 @@ private slots:
 
     void on_tableView_doubleClicked(const QModelIndex &index);
 
+    void removeOperation();
+
+    void on_pbDelete_clicked();
+
 private:
     Ui::HMagazzino *ui;
     QSqlDatabase db;

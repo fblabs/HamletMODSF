@@ -49,6 +49,7 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
+    QPushButton *pbDelete;
     QPushButton *pushButton_4;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton;
@@ -170,11 +171,19 @@ public:
 
         horizontalLayout_5->addWidget(pushButton_2);
 
+        pbDelete = new QPushButton(HMagazzino);
+        pbDelete->setObjectName(QStringLiteral("pbDelete"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/note_remove.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbDelete->setIcon(icon3);
+
+        horizontalLayout_5->addWidget(pbDelete);
+
         pushButton_4 = new QPushButton(HMagazzino);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/Upload.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Upload.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon4);
 
         horizontalLayout_5->addWidget(pushButton_4);
 
@@ -184,9 +193,9 @@ public:
 
         pushButton = new QPushButton(HMagazzino);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon5);
 
         horizontalLayout_5->addWidget(pushButton);
 
@@ -210,6 +219,7 @@ public:
         cbS->setText(QApplication::translate("HMagazzino", "SCARICO", 0));
         pushButton_3->setText(QApplication::translate("HMagazzino", "Nuova operazione", 0));
         pushButton_2->setText(QApplication::translate("HMagazzino", "Modifica operazione selezionata", 0));
+        pbDelete->setText(QApplication::translate("HMagazzino", "Elimina operazione selezionata", 0));
         pushButton_4->setText(QApplication::translate("HMagazzino", "Scarico packages", 0));
         pushButton->setText(QApplication::translate("HMagazzino", "Chiudi", 0));
     } // retranslateUi

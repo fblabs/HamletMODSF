@@ -65,8 +65,8 @@ HnuovaOperazione::HnuovaOperazione(HUser *puser,QSqlDatabase pdb,QWidget *parent
 
 
 
-    ui->tableView->setColumnHidden(0,true);
-    ui->tableView->setColumnHidden(3,true);
+   // ui->tableView->setColumnHidden(0,true);
+   // ui->tableView->setColumnHidden(3,true);
 
 
 

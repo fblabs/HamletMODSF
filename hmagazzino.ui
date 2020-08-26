@@ -178,6 +178,17 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pbDelete">
+       <property name="text">
+        <string>Elimina operazione selezionata</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icons.qrc">
+         <normaloff>:/Resources/note_remove.png</normaloff>:/Resources/note_remove.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_4">
        <property name="text">
         <string>Scarico packages</string>

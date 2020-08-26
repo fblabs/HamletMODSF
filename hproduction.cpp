@@ -73,7 +73,7 @@ HProduction::HProduction(HUser *puser,QSqlDatabase pdb,QWidget *parent) :
 
     getClients();
     ui->cbClienti->setCurrentIndex(ui->cbClienti->model()->rowCount());
-    int ix=ui->cbClienti->findText("MAGAZZINO");
+    int ix=ui->cbClienti->findText("PRODUZIONE");
     ui->cbClienti->setCurrentIndex(ix);
 
     getRecipesForClient();

@@ -474,8 +474,8 @@ void HModRicette::updateTotals()
 
     }
 
-    ui->tableView->resizeColumnsToContents();
-
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->resizeSections(QHeaderView::Stretch);
 
 }
 

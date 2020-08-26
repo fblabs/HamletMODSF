@@ -11,6 +11,7 @@
 #include "hnuovaoperazione.h"
 #include "hwarehousedetails.h"
 #include "hpackagesunload.h"
+#include <QMessageBox>
 
 
 HMagazzino::HMagazzino(QSqlDatabase pdb,HUser *puser,QWidget *parent) :
@@ -82,7 +83,7 @@ void HMagazzino::queryOperations()
 
     where.append(" order by o.data desc");
 
-    QString sql="SELECT o.ID, o.data as 'DATA',p.descrizione as 'PRODOTTO',l.lot as 'LOTTO',l.lot_fornitore as 'LOTTO FORNITORE',l.giacenza as 'GIACENZA',a.descrizione as 'AZIONE',o.quantita as 'QUANTITA',m.descrizione as 'UNITA DI MISURA',u.nome AS 'UTENTE',o.note AS 'NOTE' \
+    QString sql="SELECT o.ID,l.ID as 'id lotto', o.data as 'DATA',p.descrizione as 'PRODOTTO',l.lot as 'LOTTO',l.lot_fornitore as 'LOTTO FORNITORE',l.giacenza as 'GIACENZA',a.descrizione as 'AZIONE',o.quantita as 'QUANTITA',m.descrizione as 'UNITA DI MISURA',u.nome AS 'UTENTE',o.note AS 'NOTE' \
             FROM operazioni as o\
             INNER JOIN lotdef as l\
             ON l.ID=o.IDlotto\
@@ -108,6 +109,7 @@ void HMagazzino::queryOperations()
     //ui->tableView->horizontalHeader()->setStretchLastSection(true);
     ui->tableView->setModel(mod);
     ui->tableView->setColumnHidden(0,true);
+    ui->tableView->setColumnHidden(1,true);
 
     QApplication::setOverrideCursor(Qt::ArrowCursor);
 
@@ -142,6 +144,73 @@ void HMagazzino::updateOperation()
     f->show();
 }
 
+void HMagazzino::removeOperation()
+{
+    int id=ui->tableView->model()->index(ui->tableView->selectionModel()->currentIndex().row(),0).data(0).toInt();
+    int idlot=ui->tableView->model()->index(ui->tableView->selectionModel()->currentIndex().row(),1).data(0).toInt();
+    qDebug()<<"id"<<id<<"idlotto: "<<id;
+
+    QSqlQuery q(db);
+    QString sql="select count(IDlotto) from operazioni where IDlotto=:idlot";
+    q.prepare(sql);
+    q.bindValue(":idlot",QVariant(idlot));
+    int mov=0;
+    bool b=q.exec();
+    if(!b)
+    {
+         if(QMessageBox::warning(this,QApplication::applicationName(),"Errore:\n "+q.lastError().text(),QMessageBox::Ok)==QMessageBox::Ok)
+         {
+             return;
+         }
+
+
+    }
+    else
+    {
+        q.next();
+        mov=q.value(0).toInt();
+
+       db.transaction();
+       qDebug()<<"movimenti"<<mov;
+        if (mov==1)
+        {
+            db.transaction();
+            sql="delete from operazioni where id=:id";
+            q.prepare(sql);
+            q.bindValue(":id",id);
+
+            if (q.exec())
+            {
+
+
+                sql="delete from lotdef where ID=:idlot";
+                q.prepare(sql);
+                q.bindValue(":idlot",idlot);
+                if(q.exec())
+                {
+                    db.commit();
+                    QMessageBox::information(this,QApplication::applicationName(),"Operazione e lotto cancellati",QMessageBox::Ok);
+
+                }else{
+                    db.rollback();
+                    QMessageBox::warning(this,QApplication::applicationName(),"Impossibile cancellare:\n "+q.lastError().text(),QMessageBox::Ok);
+
+                }
+
+            }
+
+
+        }else{
+
+            QMessageBox::warning(this,QApplication::applicationName(),"Impossibile cancellare, lotto già utilizzato "+q.lastError().text(),QMessageBox::Ok);
+             db.rollback();
+        }
+
+    queryOperations();
+
+    }
+}
+
 
 
 void HMagazzino::on_pushButton_3_clicked()
@@ -153,7 +222,9 @@ void HMagazzino::on_pushButton_3_clicked()
 
 void HMagazzino::on_pushButton_2_clicked()
 {
-    updateOperation();
+
+            updateOperation();
+
 }
 
 void HMagazzino::on_pushButton_4_clicked()
@@ -186,4 +257,12 @@ void HMagazzino::on_cbProdotti_currentIndexChanged(int index)
 void HMagazzino::on_tableView_doubleClicked(const QModelIndex &index)
 {
     updateOperation();
+}
+
+void HMagazzino::on_pbDelete_clicked()
+{
+    if (QMessageBox::question(this,QApplication::applicationName(),"Cancellare l'operazione? Se esiste solo il carico il lotto verrà eliminato",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+    {
+        removeOperation();
+    }
 }

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_HMagazzino_t {
-    QByteArrayData data[16];
-    char stringdata0[271];
+    QByteArrayData data[18];
+    char stringdata0[307];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,7 +44,9 @@ QT_MOC_LITERAL(11, 173, 14), // "on_cbS_toggled"
 QT_MOC_LITERAL(12, 188, 33), // "on_cbProdotti_currentIndexCha..."
 QT_MOC_LITERAL(13, 222, 5), // "index"
 QT_MOC_LITERAL(14, 228, 15), // "updateOperation"
-QT_MOC_LITERAL(15, 244, 26) // "on_tableView_doubleClicked"
+QT_MOC_LITERAL(15, 244, 26), // "on_tableView_doubleClicked"
+QT_MOC_LITERAL(16, 271, 15), // "removeOperation"
+QT_MOC_LITERAL(17, 287, 19) // "on_pbDelete_clicked"
 
     },
     "HMagazzino\0on_pushButton_clicked\0\0"
@@ -53,7 +55,8 @@ QT_MOC_LITERAL(15, 244, 26) // "on_tableView_doubleClicked"
     "on_pushButton_4_clicked\0on_cbP_toggled\0"
     "checked\0on_cbC_toggled\0on_cbS_toggled\0"
     "on_cbProdotti_currentIndexChanged\0"
-    "index\0updateOperation\0on_tableView_doubleClicked"
+    "index\0updateOperation\0on_tableView_doubleClicked\0"
+    "removeOperation\0on_pbDelete_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +66,7 @@ static const uint qt_meta_data_HMagazzino[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,18 +74,20 @@ static const uint qt_meta_data_HMagazzino[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x08 /* Private */,
-       3,    0,   75,    2, 0x08 /* Private */,
-       4,    0,   76,    2, 0x08 /* Private */,
-       5,    0,   77,    2, 0x08 /* Private */,
-       6,    0,   78,    2, 0x08 /* Private */,
-       7,    0,   79,    2, 0x08 /* Private */,
-       8,    1,   80,    2, 0x08 /* Private */,
-      10,    1,   83,    2, 0x08 /* Private */,
-      11,    1,   86,    2, 0x08 /* Private */,
-      12,    1,   89,    2, 0x08 /* Private */,
-      14,    0,   92,    2, 0x08 /* Private */,
-      15,    1,   93,    2, 0x08 /* Private */,
+       1,    0,   84,    2, 0x08 /* Private */,
+       3,    0,   85,    2, 0x08 /* Private */,
+       4,    0,   86,    2, 0x08 /* Private */,
+       5,    0,   87,    2, 0x08 /* Private */,
+       6,    0,   88,    2, 0x08 /* Private */,
+       7,    0,   89,    2, 0x08 /* Private */,
+       8,    1,   90,    2, 0x08 /* Private */,
+      10,    1,   93,    2, 0x08 /* Private */,
+      11,    1,   96,    2, 0x08 /* Private */,
+      12,    1,   99,    2, 0x08 /* Private */,
+      14,    0,  102,    2, 0x08 /* Private */,
+      15,    1,  103,    2, 0x08 /* Private */,
+      16,    0,  106,    2, 0x08 /* Private */,
+      17,    0,  107,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -97,6 +102,8 @@ static const uint qt_meta_data_HMagazzino[] = {
     QMetaType::Void, QMetaType::Int,   13,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QModelIndex,   13,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -119,6 +126,8 @@ void HMagazzino::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_cbProdotti_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->updateOperation(); break;
         case 11: _t->on_tableView_doubleClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 12: _t->removeOperation(); break;
+        case 13: _t->on_pbDelete_clicked(); break;
         default: ;
         }
     }
@@ -149,13 +158,13 @@ int HMagazzino::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 14;
     }
     return _id;
 }
